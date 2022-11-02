@@ -1,10 +1,15 @@
+
+ 
 <!-- header section strats -->
     <header class="header_section">
       <div class="container">
+         <div class="bg-box">
+      <img src="images/background.jpg" alt="">
+    </div>
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="home">
             <span>
-              Feane
+              GreenLight
             </span>
           </a>
 
@@ -14,24 +19,24 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item {{Request::is('home')?'active':''}}">
+                <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+              <li class="nav-item {{Request::is('listbus')?'active':''}}">
+                <a class="nav-link" href="listbus">Daftar Bus</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+              <li class="nav-item {{Request::is('about')?'active':''}}">
+                <a class="nav-link" href="about">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+              <li class="nav-item {{Request::is('booking')?'active':''}}">
+                <a class="nav-link" href="booking">Booking Bus</a>
               </li>
             </ul>
             <div class="user_option">
               <a href="" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <a class="cart_link" href="#">
+              <a class="cart_link" href="/booking">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -90,7 +95,7 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="" class="order_online">
+              <a href="/login" class="order_online">
                 Order Online
               </a>
             </div>
