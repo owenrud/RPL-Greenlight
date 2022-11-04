@@ -28,6 +28,10 @@ Route::get('/about', function () {
 Route::get('/booking', function () {
     return view('booking');
 });
+Route::get('/details', function () {
+    return view('details');
+});
 Route::get('/login', function () {
     return view('login');
 });
+
