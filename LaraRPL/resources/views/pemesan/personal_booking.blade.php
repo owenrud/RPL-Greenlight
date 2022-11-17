@@ -10,12 +10,14 @@
             window.scrollTo(0, 1);
         }
     </script>
- <link rel="stylesheet" href="css/seat_style.css" type="text/css" media="all">
+ <link rel="stylesheet" href="../css/seat_style.css" type="text/css" media="all">
  <h1 style="padding:5% 0 0">Book Bus Seat</h1>
     <div class="container">
 
+
         <div class="w3ls-reg">
             <!-- input fields -->
+            <form>
             <div class="inputForm">
                 <h2>fill the required details below and select your seats</h2>
                 <div class="row">
@@ -24,13 +26,13 @@
                         <label> Name
                             <span>*</span>
                         </label>
-                        <input type="text" id="Username" required>
+                        <input style="background-color:white;" type="text" id="Username" required>
                     </div>
                     <div class="agileits-right">
                         <label> Number of Seats
                             <span>*</span>
                         </label>
-                        <input type="number" id="Numseats" required min="1">
+                        <input style="background-color:white;" type="number" id="Numseats" required min="1">
                     </div>
                     </div>
                     <div class="row">
@@ -90,9 +92,35 @@
 												<span class="select-arrow"></span>
                     </div>
                     </div>
-
+                <div class="row padding-bottom: 5px;">
+                    <div class="col">
+                        <label> Lokasi pickup
+                            <span>*</span>
+                        </label>
+                        <input type="text" id="Tanggal" required>
+                    </div>
+                    <div class="col">
+                        <label> Tujuan
+                            <span>*</span>
+                        </label>
+                        <input type="text" id="Tanggal" required>
+                    </div>
+                    <div class="col">
+                        <label> Tipe Bayar
+                            <span>*</span>
+                        </label>
+                        <select class="form-control" id="difftime" required>
+													<option>Dana</option>
+													<option>Gopay</option>
+                                                    <option>Ovo</option>
+												</select>
+                    </div>
+                    </div>
                 </div>
-                <button onclick="takeData()">Start Selecting</button>
+                
+            </div>
+            <div class="txt-center">
+            <button onclick="takeData()">Start Selecting</button>
             </div>
             <!-- //input fields -->
 			<!---728x90--->
@@ -106,10 +134,26 @@
             </ul>
             <!-- seat availabilty list -->
             <!-- seat layout -->
-            <div class="seatStructure txt-center" style="overflow-x:auto;">
-                <table id="seatsBlock">
+            <div class="seatStructure txt-center" style="background-color:white;">
+                <table style="padding-left:10px;" id="seatsBlock">
                     <p id="notification"></p>
+      
+                    @for($i=0;$i < $bus->Kapasitas; $i++)
+                    <th style="margin-left:5px">S{{$i + 1}}</th>
+                    @if ($i % 5 == 0)
                     <tr>
+                    @endif
+                    <td>
+                    <input name ="seat" type="checkbox" class="seats" value="S{{$i + 1}}">
+                    </td>
+                    @if(($i+1)% 5 == 0)
+                    </tr>
+                    @endif
+                    @endfor
+                    @if(($i+1)% 5 != 0)
+                    </tr>
+                    @endif
+                    <!--<tr>
                         <td></td>
                         <td>1</td>
                         <td>2</td>
@@ -535,16 +579,21 @@
                         <td>
                             <input type="checkbox" class="seats" value="J12">
                         </td>
-                    </tr>
+                    </tr>-->
                 </table>
 
                 <div class="screen">
                 </div>
-                <button onclick="updateTextArea()">Confirm Selection</button>
+
             </div>
+            <div >
+            <button type="submit">Confirm Selection</button>
+                </div>
+                </form>
+            
             <!-- //seat layout -->
             <!-- details after booking displayed here -->
-            <div class="displayerBoxes txt-center" style="overflow-x:auto;">
+          <!--  <div class="displayerBoxes txt-center" style="overflow-x:auto;">
                 <table class="Displaytable w3ls-table" width="100%">
                     <tr>
                         <th>Name</th>
@@ -571,7 +620,7 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div>-->
             <!-- //details after booking displayed here -->
         </div>
     </div>

@@ -7,6 +7,7 @@
             <div class="section-title text-center center">
                 <h2><strong>Tipe Booking</strong></h2>
                 
+                
 
             <div class="categories">
                 
@@ -19,7 +20,7 @@
                 <div class="col-sm-6">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/pbooking">
+                            <a href="/pbooking/{{{$id}}}">
                                 <div class="hover-text">
                                     <h4>Personal</h4>
                                     <small>Description singkat</small>
@@ -35,7 +36,8 @@
                 <div class="col-sm-6">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/booking">
+                        
+                            <a href="/booking/{{{$id}}}">
                                 <div class="hover-text">
                                     <h4>Instansi</h4>
                                     <small>Description singkat</small>

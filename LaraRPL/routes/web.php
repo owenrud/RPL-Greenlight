@@ -25,40 +25,44 @@ Route::get('/listbus', function () {
 Route::get('/about', function () {
     return view('pemesan.about');
 });
-Route::get('/booking', function () {
-    return view('pemesan.booking');
-});
-Route::get('/pbooking', function () {
-    return view('pemesan.personal_booking');
-});
-Route::get('/booking/invoice', function () {
-    return view('pemesan.invoice');
-});
-Route::get('/booking/payment', function () {
-    return view('pemesan.payment');
-});
-Route::get('/details', function () {
-    return view('pemesan.details');
-});
-Route::get('/pilihbooking', function () {
-    return view('pemesan.list_booking');
-});
-Route::get('/cart', function () {
-    return view('pemesan.shop_cart');
-});
-
-
 Route::get('/register', function () {
     return view('pemesan.register');
 });
-
-
-Route::get('/login', [App\Http\Controllers\LoginController::class,'login']);
+Route::get('/details/{id}', [App\Http\Controllers\Daftar_busController::class,'details_bus']);
+Route::get('/login', [App\Http\Controllers\LoginController::class,'login'])->middleware('guest')->name('login');
 Route::post('/login/validate', [App\Http\Controllers\LoginController::class,'check']);
-
+Route::post('/register/createuser', [App\Http\Controllers\LoginController::class,'saveuser']);
+Route::get('/logout', [App\Http\Controllers\LoginController::class,'logout']);
 
 Route::get('/admin', function () {
     return view('welcome');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/booking/{id}', [App\Http\Controllers\Daftar_busController::class,'booking']);
+    Route::get('/pbooking/{id}', [App\Http\Controllers\Daftar_busController::class,'personal_booking']);
+    Route::post('/booking/invoice', [App\Http\Controllers\Daftar_busController::class,'invoice']);
+    Route::post('/booking/invoice/upload', [App\Http\Controllers\Daftar_busController::class,'upload']);
+    Route::post('/pilihbooking', [App\Http\Controllers\Daftar_busController::class,'list_booking']);
+    Route::get('/cart', function () {
+        return view('pemesan.shop_cart');
+    });
+});
+
+
+Route::get('/index', function () {
+    return view('admin.dashboard');
+});
+Route::get('/validatePribadi', function () {
+    return view('admin.validatePribadi');
+});
+Route::get('/validateInstansi', function () {
+    return view('admin.validateInstansi');
+});
+
+
+Route::get('/404', function () {
+    return view('eror');
 });
 
 

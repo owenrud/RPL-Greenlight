@@ -9,19 +9,19 @@
 						<div class="form-header">
 							<h1>Book a Bus</h1>
 						</div>
-						<form method="GET" action="/booking/invoice">
+						<form method="POST" action="/booking/invoice">
 						@csrf
 						<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">ID Bus</span>
-										<input class="form-control" type="text-" value="ID001" disabled>
+										<input name="id" class="form-control" type="text" value="{{$bus->id}}" readonly>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Nama Bus</span>
-										<input class="form-control" type="text-" value="Bus 01" disabled>
+										<input name="nama_bus" class="form-control" type="text" value="{{$bus->Nama_Bus}}" readonly>
 									</div>
 								</div>
 								</div>
@@ -29,34 +29,51 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Nama Instusi</span>
-										<input class="form-control" type="text" placeholder="Masukkan Nama Instusi">
+										<input name="nama_user" class="form-control" type="text"  value="{{$user->nama}}" placeholder="Masukkan Nama Instusi">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Email</span>
-										<input class="form-control" type="email" placeholder="Masukkan email anda">
+										<input name="email" class="form-control" type="email" value="{{$user->email}}">
 									</div>
 								</div>
 							</div>
+							<div class="row">
+							<div class="col-sm-6">
 							<div class="form-group">
 								<span class="form-label">Nomor Handphone</span>
-								<input class="form-control" type="tel" placeholder="Masukkan Nomor Handphone anda">
+								<input name="no_telp" class="form-control" type="tel" value="{{$user->no_telp}}" placeholder="Masukkan Nomor Handphone anda">
+							</div>
+							</div>
+							<div class="col-sm-6">
+							<div class="form-group">
+												<span class="form-label">Pembayaran</span>
+												<select name="tipe_bayar" class="form-control">
+													<option>Dana</option>
+													<option>Ovo</option>
+													<option>Gopay</option>
+
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+							</div>
 							</div>
                             
 							<div class="form-group">
 								<span class="form-label">Lokasi Pickup</span>
-								<input class="form-control" type="text" placeholder="Masukkan Lokasi Pickup">
+								<input name="lok_pickup" class="form-control" type="text"value="{{$user->alamat}}"  placeholder="Masukkan Lokasi Pickup">
 							</div>
 							<div class="form-group">
 								<span class="form-label">Tujuan</span>
-								<input class="form-control" type="text" placeholder="Masukkan Tujuan Bus">
+								<input name="tujuan" class="form-control" type="text" placeholder="Masukkan Tujuan Bus">
 							</div>
+							
 							<div class="row">
 								<div class="col-sm-5">
 									<div class="form-group">
 										<span class="form-label">Tanggal Pickup</span>
-										<input class="form-control" type="date" required>
+										<input name="tgl" class="form-control" type="date" required>
 									</div>
 								</div>
 								<div class="col-sm-7">
@@ -64,7 +81,7 @@
 										<div class="col-sm-4">
 											<div class="form-group">
 												<span class="form-label">Jam</span>
-												<select class="form-control">
+												<select name="jam" class="form-control">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -84,7 +101,7 @@
 										<div class="col-sm-4">
 											<div class="form-group">
 												<span class="form-label">Menit</span>
-												<select class="form-control">
+												<select name="menit" class="form-control">
 													<option>05</option>
 													<option>10</option>
 													<option>15</option>
@@ -103,7 +120,7 @@
 										<div class="col-sm-4">
 											<div class="form-group">
 												<span class="form-label">AM/PM</span>
-												<select class="form-control">
+												<select name="waktu" class="form-control">
 													<option>AM</option>
 													<option>PM</option>
 												</select>
@@ -122,4 +139,5 @@
 			</div>
 		</div>
 	</div>
+
 @endsection

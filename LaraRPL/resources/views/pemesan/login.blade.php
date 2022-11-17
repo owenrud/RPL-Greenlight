@@ -27,6 +27,9 @@
     <title>Login</title>
   </head>
   <body>
+  @if(Session('notif'))
+  <div class="alert alert-info">{{ Session('notif') }}</div>
+  @endif
 <section class="vh-100">
   <div class="container-fluid">
     <div class="row">
@@ -44,13 +47,15 @@
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
             <div class="form-outline mb-4">
-              <input type="email" id="form2Example18" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example18">Email address</label>
+            <label class="form-label" for="form2Example18">Email address</label>
+              <input type="email" name="email" id="form2Example18" class="form-control form-control-lg" />
+              
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example28" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example28">Password</label>
+            <label class="form-label" for="form2Example28">Password</label>
+              <input type="password" name="password" id="form2Example28" class="form-control form-control-lg" />
+              
             </div>
 
             <div class="pt-1 mb-4">

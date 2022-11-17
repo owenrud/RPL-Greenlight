@@ -19,18 +19,23 @@
       <p class="my-5 mx-5" style="font-size: 30px;">Thank for your order</p>
       <div class="row">
         <ul class="list-unstyled">
-          <li class="text-black">Test</li>
-          <li class="text-muted mt-1"><span class="text-black">Invoice</span> #12345</li>
-          <li class="text-black mt-1">November 17 2022</li>
-          <li class="text-black mt-1"><strong>Pembayaran Via : X</strong></li>
-        <li class="text-black mt-1"><strong>12345678765 - a/n Test</strong></li>
+        {{$databook['email']}}
+          <li class="text-black"></li>
+          <li class="text-muted mt-1"><span class="text-black">Invoice</span> #{{$invo}}</li>
+          <li class="text-black mt-1">{{ now()}}</li>
+          <li class="text-black mt-1"><strong>Pembayaran Via : {{$databook['tipe_bayar']}}</strong></li>
+        <li class="text-black mt-1"><strong>12345678765 - a/n Test Invoice</strong></li>
         </ul>
         <hr>
         <div class="col-xl-10">
-          <p>Bus A01</p>
-          <small>Tanggal Pickup : 20-11-2022</small>
+          <p>{{$databook['nama_bus']}}</p>
+          <small>Tanggal Pickup : {{$databook['tgl']}}</small>
           <br>
-          <small>Waktu : 10:45:00</small>
+          <small>Waktu : {{$databook['jam']}} : {{$databook['menit']}} : {{$databook['waktu']}}</small>
+          <br>
+          <small>Lokasi Pickup : {{$databook['lok_pickup']}}</small>
+          <br>
+          <small>Tujuan : {{$databook['tujuan']}} </small>
         </div>
         <div class="col-xl-2">
           <p class="float-end">Rp 150.000
@@ -68,8 +73,9 @@
       </div>-->
       <div class="text-center" style="margin-top: 90px;">
         <p><strong>Upload Bukti Pembayaran</strong></p>
-        <form method="POST" action="/booking/invoice/upload" enctype="multipart/formdata">
-        <input type="file" style="padding-left:7%;">
+        <form method="POST" action="/booking/invoice/upload" enctype="multipart/form-data">
+        @csrf
+        <input name="bukti_bayar" type="file" style="padding-left:7%;">
         <button type="submit" class="btn btn-success">Submit</button>
         <br>
         </form>

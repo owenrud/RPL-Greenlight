@@ -86,7 +86,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 p">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="details">
+                            <a href="details/1">
                                 <div class="hover-text">
                                     <h4>Bus1</h4>
                                     <small>Description singkat</small>
@@ -102,7 +102,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 exe p i">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/details">
+                            <a href="/details/2">
                                 <div class="hover-text">
                                     <h4>Bus 2</h4>
                                     <small>Description singkat</small>
@@ -118,7 +118,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 p">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/details">
+                            <a href="/details/3">
                                 <div class="hover-text">
                                     <h4>Bus 3</h4>
                                     <small>Deskripsi</small>
@@ -134,7 +134,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 i">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/details">
+                            <a href="/details/4">
                                 <div class="hover-text">
                                     <h4>Bus 4</h4>
                                     <small>Deskripsi</small>
@@ -150,7 +150,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 i">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/details">
+                            <a href="/details/5">
                                 <div class="hover-text">
                                     <h4>Bus 5</h4>
                                     <small>Deskripsi</small>
@@ -166,7 +166,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 p i">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/details">
+                            <a href="/details/6">
                                 <div class="hover-text">
                                     <h4>Bus 6</h4>
                                     <small>Deskripsi</small>
@@ -182,7 +182,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 p">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="/details/7">
                                 <div class="hover-text">
                                     <h4>Bus 7</h4>
                                     <small>Deskripsi</small>
@@ -198,7 +198,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 i">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="/details/8">
                                 <div class="hover-text">
                                     <h4>Bus 8</h4>
                                     <small>Deskripsi</small>

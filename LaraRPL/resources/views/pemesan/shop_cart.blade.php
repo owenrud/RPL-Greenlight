@@ -61,7 +61,7 @@
                         <div style="width: 150px;">
                           <h5 class="mb-0">Rp. 150.000</h5>
                         </div>
-                        <a href="/booking/invoice" style="color: #cecece;"><i class="fas fa-search"></i></a>
+                        <a href="#" style="color: #cecece;"><i class="fas fa-search"></i></a>
                       </div>
                     </div>
                   </div>

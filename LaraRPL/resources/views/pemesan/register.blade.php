@@ -56,45 +56,50 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <h2 class="text-uppercase text-center ">Create an account</h2>
 
-              <form>
-
+              <form Method="POST" action="/register/createuser">
+              @csrf
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Nama</label>
+                <label class="form-label" >Nama</label>
+                  <input type="text" name="nama" class="form-control form-control-lg" required />
+                  
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Email</label>
+                <label class="form-label" >Email</label>
+                  <input type="email" name="email" class="form-control form-control-lg" required/>
+                  
                 </div>
 
                 <div class="form-outline mb-4">
-                                  <label class="form-label" for="form3Example4cg">Tgl lahir</label>
-                  <input type="datetime-local" id="date" class="form-control form-control-lg" />
+                                  <label class="form-label" >Tgl lahir</label>
+                  <input type="date" name="tgl_lahir" class="form-control form-control-lg" required />
 
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Alamat</label>
+                <label class="form-label" >Alamat</label>
+                  <input type="text" name="alamat" class="form-control form-control-lg" required />
+                  
+                </div>
+
+                
+
+                <div class="form-outline mb-4">
+                <label class="form-label" >Password</label>
+                  <input type="password" name="password" class="form-control form-control-lg" required />
+                  
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cdg">Password</label>
-                </div>
-
-                <div class="form-check d-flex justify-content-center mb-5">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                  <label class="form-check-label" for="form2Example3g">
-                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                  </label>
+                <label class="form-label" >No. Telepon</label>
+                  <input type="text" name="no_telp" class="form-control form-control-lg" required />
+                  
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button"
+                  <button type="submit"
                     class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 
