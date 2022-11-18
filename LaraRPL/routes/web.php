@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::get('/index', function () {
+Route::get('/adminDashboard', function () {
     return view('admin.dashboard');
 });
 Route::get('/validatePribadi', function () {
@@ -58,6 +58,12 @@ Route::get('/validatePribadi', function () {
 });
 Route::get('/validateInstansi', function () {
     return view('admin.validateInstansi');
+});
+Route::get('/dataBus', function () {
+    return view('admin.dataBus');
+});
+Route::get('/dataUser', function () {
+    return view('admin.dataUser');
 });
 
 
