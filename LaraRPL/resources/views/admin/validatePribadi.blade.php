@@ -21,42 +21,97 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Alamat</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Nama</th>
+                                <th>Number Of Seats</th>
+                                <th>Tanggal</th>
+                                <th>Waktu</th>
+                                <th>Lokasi Pickup</th>
+                                <th>Tujuan</th>
+                                <th>Tipe Bayar</th>
                                 <th>Validasi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                                <td><button class="btn-primary">Validate</button></td>
+                                <td>S1</td>
+                                <td>12/11/2002</td>
+                                <td>12:30:00</td>
+                                <td>Terminal Concat</td>
+                                <td>Salatiga</td>
+                                <td>Gopay</td>
+                                <td>
+                                    <div class="btn-group dropdown">
+                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                      aria-expanded="false">
+                                        <span>Validasi</span>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item" href="/validatePribadi" type="button" style="word-spacing:50px">
+                                          Validate <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/validatePribadi" type="button"
+                                          onclick="return confirm('Apakah Anda Yakin menolak pesanan ini?')" style="word-spacing:32.5px">
+                                          Tolak <i class="bi bi-trash"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                                <td><button class="btn-primary">Validate</button></td>
+                                <td>Tiger Nixon</td>
+                                <td>S16</td>
+                                <td>12/11/2002</td>
+                                <td>12:30:00</td>
+                                <td>Terminal Concat</td>
+                                <td>Salatiga</td>
+                                <td>Gopay</td>
+                                <td>
+                                    <div class="btn-group dropdown">
+                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                      aria-expanded="false">
+                                        <span>Validasi</span>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
+                                          Validate <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
+                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
+                                          Tolak <i class="bi bi-trash"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                                <td><button class="btn-primary">Validate</button></td>
+                                <td>Tiger Nixon</td>
+                                <td>S5</td>
+                                <td>12/11/2002</td>
+                                <td>12:30:00</td>
+                                <td>Terminal Concat</td>
+                                <td>Salatiga</td>
+                                <td>Gopay</td>
+                                <td>
+                                    <div class="btn-group dropdown">
+                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                      aria-expanded="false">
+                                        <span>Validasi</span>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
+                                          Validate <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
+                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
+                                          Tolak <i class="bi bi-trash"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                         

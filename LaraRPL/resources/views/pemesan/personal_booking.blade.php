@@ -17,7 +17,7 @@
 
         <div class="w3ls-reg">
             <!-- input fields -->
-            <form>
+            <!--<form>-->
             <div class="inputForm">
                 <h2>fill the required details below and select your seats</h2>
                 <div class="row">
@@ -97,19 +97,19 @@
                         <label> Lokasi pickup
                             <span>*</span>
                         </label>
-                        <input type="text" id="Tanggal" required>
+                        <input type="text" id="loc" required>
                     </div>
                     <div class="col">
                         <label> Tujuan
                             <span>*</span>
                         </label>
-                        <input type="text" id="Tanggal" required>
+                        <input type="text" id="Tuju" required>
                     </div>
                     <div class="col">
                         <label> Tipe Bayar
                             <span>*</span>
                         </label>
-                        <select class="form-control" id="difftime" required>
+                        <select class="form-control" id="bayar" required>
 													<option>Dana</option>
 													<option>Gopay</option>
                                                     <option>Ovo</option>
@@ -586,6 +586,7 @@
                 </div>
 
             </div>
+            <form>
             <div >
             <button type="submit">Confirm Selection</button>
                 </div>
