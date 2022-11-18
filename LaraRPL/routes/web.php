@@ -34,9 +34,7 @@ Route::post('/login/validate', [App\Http\Controllers\LoginController::class,'che
 Route::post('/register/createuser', [App\Http\Controllers\LoginController::class,'saveuser']);
 Route::get('/logout', [App\Http\Controllers\LoginController::class,'logout']);
 
-Route::get('/admin', function () {
-    return view('welcome');
-});
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/booking/{id}', [App\Http\Controllers\Daftar_busController::class,'booking']);
@@ -50,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::get('/index', function () {
+Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 Route::get('/validatePribadi', function () {
