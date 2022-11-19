@@ -23,15 +23,17 @@ class LoginController extends Controller
             'email' => 'required|max:255',
             'password' => 'required',
         ]);
- 
+        
+        
         // Retrieve the validated input...
+        
         $validated = $validator->validated();
          //dd($validated);
         if(!Auth::attempt($validated)){
             return redirect('/login');
         }
         else{
-            return redirect('/home')->with('notif','Login Berhasil!');
+            return redirect()->to($request->input('url'))->with('notif','Login Berhasil!');
         }
             
     }

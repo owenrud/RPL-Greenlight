@@ -18,8 +18,12 @@
         <div class="w3ls-reg">
             <!-- input fields -->
             <!--<form>-->
-            <div class="inputForm">
+            <div class="">
+            <form method="POST" action="/booking/invoice">
+            
                 <h2>fill the required details below and select your seats</h2>
+                <input name="email" type="hidden" value="{{$user->email}}">
+                <input name="nama_bus" type="hidden" value="{{$bus->Nama_Bus}}">
                 <div class="row">
                 <div class="mr_agilemain">
                     <div class="agileits-left">
@@ -40,13 +44,13 @@
                         <label> Tanggal
                             <span>*</span>
                         </label>
-                        <input type="date" id="Tanggal" required>
+                        <input name ="tgl" type="date" id="Tanggal" required>
                     </div>
                     <div class="col" style="padding-left:10px;">
                         <label> Jam
                             <span>*</span>
                         </label>
-                        <select class="form-control" id = "Jam" required>
+                        <select name="jam" type="number" class="form-control" id = "Jam" required>
 													<option >1</option>
 													<option >2</option>
 													<option >3</option>
@@ -66,7 +70,7 @@
                         <label> Menit
                             <span>*</span>
                         </label>
-                        <select class="form-control" id="Min" required>
+                        <select name="menit" class="form-control" id="Min" required>
 													<option>05</option>
 													<option>10</option>
 													<option>15</option>
@@ -85,7 +89,7 @@
                         <label> AM/PM
                             <span>*</span>
                         </label>
-                        <select class="form-control" id="difftime" required>
+                        <select name="waktu" class="form-control" id="difftime" required>
 													<option>AM</option>
 													<option>PM</option>
 												</select>
@@ -97,19 +101,19 @@
                         <label> Lokasi pickup
                             <span>*</span>
                         </label>
-                        <input type="text" id="loc" required>
+                        <input style="background-color:white;" name="lok_pickup" type="text" id="loc" required>
                     </div>
                     <div class="col">
                         <label> Tujuan
                             <span>*</span>
                         </label>
-                        <input type="text" id="Tuju" required>
+                        <input style="background-color:white;" name="tujuan" type="text" id="Tuju" required>
                     </div>
                     <div class="col">
                         <label> Tipe Bayar
                             <span>*</span>
                         </label>
-                        <select class="form-control" id="bayar" required>
+                        <select name="tipe_bayar" class="form-control" id="bayar" required>
 													<option>Dana</option>
 													<option>Gopay</option>
                                                     <option>Ovo</option>
@@ -117,11 +121,11 @@
                     </div>
                     </div>
                 </div>
-                
+                <div class="txt-center">
+            <button type="button" onclick="takeData(event)">Start Selecting</button>
             </div>
-            <div class="txt-center">
-            <button onclick="takeData()">Start Selecting</button>
             </div>
+            
             <!-- //input fields -->
 			<!---728x90--->
             <!-- seat availabilty list -->
@@ -144,7 +148,7 @@
                     <tr>
                     @endif
                     <td>
-                    <input name ="seat" type="checkbox" class="seats" value="S{{$i + 1}}">
+                    <input name ="seat[]" type="checkbox" class="seats" value="S{{$i + 1}}">
                     </td>
                     @if(($i+1)% 5 == 0)
                     </tr>
@@ -582,15 +586,11 @@
                     </tr>-->
                 </table>
 
-                <div class="screen">
-                </div>
+                <!--<div class="screen">
+                </div>-->
 
             </div>
-            <form>
-            <div >
-            <button type="submit">Confirm Selection</button>
-                </div>
-                </form>
+           
             
             <!-- //seat layout -->
             <!-- details after booking displayed here -->
@@ -621,10 +621,17 @@
                         </td>
                     </tr>
                 </table>
-            </div>-->
+            </div>
             <!-- //details after booking displayed here -->
+             @csrf
+            <div >
+            <button type="submit">Confirm Selection</button>
+                </div>
+                </form>
         </div>
+        
     </div>
+    
        <!-- js -->
     <script src="../js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
@@ -635,11 +642,12 @@
             $(".displayerBoxes *").prop("disabled", true);
         }
 
-        function takeData() {
+        function takeData(event) {
+            event.preventDefault();
             if (($("#Username").val().length == 0) || ($("#Numseats").val().length == 0)) {
                 alert("Please Enter your Name and Number of Seats");
             } else {
-                $(".inputForm *").prop("disabled", true);
+                $(".inputForm *").prop("readonly", true);
                 $(".seatStructure *").prop("disabled", false);
                 document.getElementById("notification").innerHTML =
                     "<b style='margin-bottom:0px;background:#ff9800;letter-spacing:1px;'>Please Select your Seats NOW!</b>";

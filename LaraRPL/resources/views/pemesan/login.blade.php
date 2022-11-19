@@ -44,6 +44,7 @@
 
           <form method="POST" action="/login/validate" style="width: 23rem;">
           @csrf
+          <input type="hidden" name="url" value="{{url()->previous()}}">
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
             <div class="form-outline mb-4">

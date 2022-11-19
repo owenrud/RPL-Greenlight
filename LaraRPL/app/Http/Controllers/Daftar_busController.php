@@ -17,14 +17,17 @@ class Daftar_busController extends Controller
     }
     public function list_booking(Request $request){
         $id = $request->input('id_bus');
-       return view('pemesan.list_booking',['id'=>$id]);
+        $databus = Bus::find($id);
+       return view('pemesan.list_booking',['bus'=>$databus]);
     }
-    public function booking($id){
+    public function booking(Request $request){
+        $id = $request->input('id');
         $databus = Bus::find($id);
         $datauser = Auth::user();
         return view('pemesan.booking',['bus'=>$databus,'user'=>$datauser]);
     }
-    public function personal_booking($id){
+    public function personal_booking(Request $request){
+        $id = $request->input('id');
         $databus = Bus::find($id);
         $datauser = Auth::user();
         return view('pemesan.personal_booking',['bus'=>$databus,'user'=>$datauser]);
@@ -38,7 +41,7 @@ class Daftar_busController extends Controller
         $a = $request->email;
         $id = $request->id;
         $email = $request->email;*/
-        $data = $request->post();
+        $data = $request->all();
 
         $datauser = Auth::user();
         $uniq_invo = Str::random(5);

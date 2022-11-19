@@ -37,8 +37,8 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class,'logout']);
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/booking/{id}', [App\Http\Controllers\Daftar_busController::class,'booking']);
-    Route::get('/pbooking/{id}', [App\Http\Controllers\Daftar_busController::class,'personal_booking']);
+    Route::post('/booking', [App\Http\Controllers\Daftar_busController::class,'booking']);
+    Route::post('/pbooking', [App\Http\Controllers\Daftar_busController::class,'personal_booking']);
     Route::post('/booking/invoice', [App\Http\Controllers\Daftar_busController::class,'invoice']);
     Route::post('/booking/invoice/upload', [App\Http\Controllers\Daftar_busController::class,'upload']);
     Route::post('/pilihbooking', [App\Http\Controllers\Daftar_busController::class,'list_booking']);

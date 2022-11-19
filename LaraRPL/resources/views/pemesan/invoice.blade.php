@@ -36,6 +36,15 @@
           <small>Lokasi Pickup : {{$databook['lok_pickup']}}</small>
           <br>
           <small>Tujuan : {{$databook['tujuan']}} </small>
+          <br>
+          @if(isset($databook['seat']))
+           @php   
+           echo("Seat : ");
+            echo implode(",",$databook['seat']);
+            @endphp
+          @endif
+          
+          
         </div>
         <div class="col-xl-2">
           <p class="float-end">Rp 150.000

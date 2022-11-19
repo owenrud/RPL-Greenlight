@@ -20,7 +20,7 @@
                 <div class="col-sm-6">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="/pbooking/{{{$id}}}">
+                            <a href="/pbooking">
                                 <div class="hover-text">
                                     <h4>Personal</h4>
                                     <small>Description singkat</small>
@@ -37,7 +37,7 @@
                     <div class="portfolio-item">
                         <div class="hover-bg">
                         
-                            <a href="/booking/{{{$id}}}">
+                            <a href="/booking">
                                 <div class="hover-text">
                                     <h4>Instansi</h4>
                                     <small>Description singkat</small>

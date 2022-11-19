@@ -99,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-md-3 col-lg-3 exe p i">
+                <div class="col-sm-6 col-md-3 col-lg-3 exe i">
                     <div class="portfolio-item">
                         <div class="hover-bg">
                             <a href="/details/2">
@@ -163,7 +163,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-md-3 col-lg-3 p i">
+                <div class="col-sm-6 col-md-3 col-lg-3 p">
                     <div class="portfolio-item">
                         <div class="hover-bg">
                             <a href="/details/6">
