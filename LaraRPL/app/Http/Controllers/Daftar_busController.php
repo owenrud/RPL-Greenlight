@@ -45,7 +45,8 @@ class Daftar_busController extends Controller
 
         $datauser = Auth::user();
         $uniq_invo = Str::random(5);
-        //dd($data);
+        //dd($data); 
+        
         return view('pemesan.invoice',['databook'=>$data,'user'=>$datauser])->with('invo',$uniq_invo);
     }
     public function upload(Request $req){
