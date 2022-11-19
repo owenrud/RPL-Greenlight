@@ -2,85 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\DataUser;
-use App\Http\Requests\StoreDataUserRequest;
-use App\Http\Requests\UpdateDataUserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class DataUserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function getAllUsers()
     {
-        //
-    }
+        $datas = DataUser::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        return view('admin.dataUser', compact(
+            'datas'
+        ));
+    }
     public function create()
     {
-        //
+        $user = new DataUser;
+        return view('admin.formInputUser', compact(
+            'user'
+        ));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreDataUserRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreDataUserRequest $request)
+    public function addDataUser(Request $req)
     {
-        //
-    }
+        $user = new DataUser;
+        $user->nama = $req->nama;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->password, ['rounds' => 12]);
+        $user->tgl_lahir = $req->tgl_lahir;
+        $user->alamat = $req->alamat;
+        $user->no_telp = $req->no_telp;
+        $user->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DataUser  $dataUser
-     * @return \Illuminate\Http\Response
-     */
-    public function show(DataUser $dataUser)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DataUser  $dataUser
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DataUser $dataUser)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateDataUserRequest  $request
-     * @param  \App\Models\DataUser  $dataUser
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateDataUserRequest $request, DataUser $dataUser)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DataUser  $dataUser
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(DataUser $dataUser)
-    {
-        //
+        return redirect('/dataUser');
     }
 }
