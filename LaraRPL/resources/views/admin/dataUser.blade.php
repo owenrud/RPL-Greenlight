@@ -11,7 +11,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Master Data User</h6>
+              <a class="btn btn-info" href="/formInputUser">Tambah Data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -22,91 +22,41 @@
                                 <th>Email</th>
                                 <th>Tanggal Lahir</th>
                                 <th>Alamat</th>
-                                <th>Password</th>
                                 <th>No Telp</th>
+                                <th>Password</th>
                                 <th>CRUD</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($datas as $key=>$user)
                             <tr>
-                                <td>Gilbert</td>
-                                <td>gilbert@gmail.com</td>
-                                <td>23/10/2002</td>
-                                <td>Jembatan Merah III</td>
-                                <td>agsfdhaasd</td>
-                                <td>082147763055</td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-                                      aria-expanded="false">
-                                        <span>Edit</span>
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
-                                          Edit <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
-                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
-                                          Hapus <i class="bi bi-trash"></i>
-                                        </a>
-                                      </div>
+                              <td>{{ $user->nama }}</td>
+                              <td>{{ $user->email }}</td>
+                              <td>{{ $user->tgl_lahir }}</td>
+                              <td>{{ $user->alamat }}</td>
+                              <td>{{ $user->no_telp }}</td>
+                              <td>{{ $user->password }}</td>
+                              <td>
+                                  <div class="btn-group dropdown">
+                                    <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                      <span>Edit</span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
+                                        Edit <i class="bi bi-pencil-square"></i>
+                                      </a>
+                                      <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
+                                        onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
+                                        Hapus <i class="bi bi-trash"></i>
+                                      </a>
                                     </div>
+                                  </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Gilbert</td>
-                                <td>gilbert@gmail.com</td>
-                                <td>23/10/2002</td>
-                                <td>Jembatan Merah III</td>
-                                <td>agsfdhaasd</td>
-                                <td>082147763055</td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-                                      aria-expanded="false">
-                                        <span>Edit</span>
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
-                                          Edit <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
-                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
-                                          Hapus <i class="bi bi-trash"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Gilbert</td>
-                                <td>gilbert@gmail.com</td>
-                                <td>23/10/2002</td>
-                                <td>Jembatan Merah III</td>
-                                <td>agsfdhaasd</td>
-                                <td>082147763055</td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-                                      aria-expanded="false">
-                                        <span>Edit</span>
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
-                                          Edit <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
-                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
-                                          Hapus <i class="bi bi-trash"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            
+                                
+                            @endforeach
                         </tbody>
                         
                     </table>
