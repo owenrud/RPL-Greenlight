@@ -29,12 +29,43 @@ class DataUserController extends Controller
         $user = new DataUser;
         $user->nama = $req->nama;
         $user->email = $req->email;
-        $user->password = Hash::make($req->password, ['rounds' => 12]);
+        $user->password = encrypt($req->password);
         $user->tgl_lahir = $req->tgl_lahir;
         $user->alamat = $req->alamat;
         $user->no_telp = $req->no_telp;
         $user->save();
 
+        return redirect('/dataUser');
+    }
+
+    public function editDataUser($id)
+    {
+        $user = DataUser::find( decrypt($id) );
+         //dd (decrypt($user->password));
+        return view('admin.formUpdateUser', compact(
+            'user'
+        ));
+    }
+
+    public function addUpdateUser(Request $req, $id)
+    {
+        $user = DataUser::find($id);
+        // dd (decrypt($user->password));
+        $user->nama = $req->nama;
+        $user->email = $req->email;
+        $user->password = encrypt($req->password);
+        $user->tgl_lahir = $req->tgl_lahir;
+        $user->alamat = $req->alamat;
+        $user->no_telp = $req->no_telp;
+        $user->save();
+
+        return redirect('/dataUser');
+    }
+
+    // Delete User
+    public function deleteUser($id) {
+        $user = DataUser::find(decrypt($id))->delete();
+         //dd (decrypt($user->password));
         return redirect('/dataUser');
     }
 }

@@ -67,6 +67,16 @@ Route::get('/dataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'g
 Route::get('/dataUser', [App\Http\Controllers\DataUserController::class,'getAllUsers']);
 Route::get('/formInputUser', [App\Http\Controllers\DataUserController::class,'create']);
 Route::post('/addDataUser', [App\Http\Controllers\DataUserController::class,'addDataUser']);
+// UpdateDataUser
+Route::get('/dataUser/editDataUser/{id}', [App\Http\Controllers\DataUserController::class,'editDataUser']);
+Route::patch('/updateDataUser/{id}', [App\Http\Controllers\DataUserController::class,'addUpdateUser']);
+// DeleteUser
+Route::get('/dataUser/hapusDataUser/{id}', [App\Http\Controllers\DataUserController::class,'deleteUser']);
+
+
+Route::get('/formInputBus', [App\Http\Controllers\DaftarBus_AdminController::class,'create']);
+Route::post('/addDataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'addDataBus']);
+
 
 Route::get('/404', function () {
     return view('eror');
