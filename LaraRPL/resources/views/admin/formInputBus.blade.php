@@ -30,7 +30,8 @@
                             <i class="fa fa-bus"></i>
                         </span>
                     </div>
-                    <select class="custom-select" name="Area">
+                    <select class="custom-select" name="Sifat">
+                        <option disabled selected>Sifat</option>
                         <option value="Instansi">Instansi</option>
                         <option value="Pribadi">Pribadi</option>
                     </select>
@@ -44,6 +45,7 @@
                         </span>
                     </div>
                     <select class="custom-select" name="Area">
+                        <option disabled selected>Area</option>
                         <option value="Dalam Kota">Dalam Kota</option>
                         <option value="Luar Kota">Luar Kota</option>
                     </select>
