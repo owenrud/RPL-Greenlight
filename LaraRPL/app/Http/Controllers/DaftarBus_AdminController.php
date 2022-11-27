@@ -32,7 +32,11 @@ class DaftarBus_AdminController extends Controller
 
         $bus = new Bus;
         $bus->Nama_Bus = $req->Nama_Bus;
+<<<<<<< HEAD
         $bus->Sifat = $req->boolean('Sifat');
+=======
+        $bus->Sifat = $req->Sifat;
+>>>>>>> e16a6ba5f67dfadf61dba7f2c62208bf3c107413
         $bus->Kode_Bus = $req->Kode_Bus;
         $bus->pabrikan = $req->pabrikan;
         $bus->no_mesin = $req->no_mesin;
