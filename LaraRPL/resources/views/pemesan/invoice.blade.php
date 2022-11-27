@@ -84,6 +84,21 @@
         <p><strong>Upload Bukti Pembayaran</strong></p>
         <form method="POST" action="/booking/invoice/upload" enctype="multipart/form-data">
         @csrf
+        <input name="kode_invoice" type ="hidden" value="{{$invo}}">
+        <input name="email" type ="hidden" value="{{$databook['email']}}">
+        <input name="tipe_bayar" type ="hidden" value="{{$databook['tipe_bayar']}}">
+        <input name="no_bayar" type ="hidden" value="12345678">
+        <input name="nama_bus" type ="hidden" value="{{$databook['nama_bus']}}">
+        <input name="tgl" type ="hidden" value="{{$databook['tgl']}}">
+        <input name="lok_pickup" type ="hidden" value="{{$databook['lok_pickup']}}">
+        <input name="tujuan" type ="hidden" value="{{$databook['tujuan']}}">
+        @if(isset($databook['seat']))
+        <input name="seat" type ="hidden" value="{{implode(',', $databook['seat'])}}">
+        @endif
+        <input name="harga" type ="hidden" value="150000">
+        <input name="waktu" type ="hidden" value="{{$databook['jam']}} : {{$databook['menit']}} : {{$databook['waktu']}}">
+
+
         <input name="bukti_bayar" type="file" style="padding-left:7%;">
         <button type="submit" class="btn btn-success">Submit</button>
         <br>

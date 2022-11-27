@@ -34,24 +34,28 @@
 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <div>
+                  
                     <p class="mb-1">Order History</p>
-                    <p class="mb-0">You have 1 items in your history</p>
+                    <p class="mb-0">You have {{count($invoice)}} items in your history</p>
                   </div>
                
                 </div>
-
+              @foreach($invoice as $data )
                 <div class="card mb-3">
                   <div class="card-body">
+                  
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                            src="../images/b2.jpg"
-                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                        </div>
                         <div class="ms-3">
-                          <h5>Bus 02</h5>
-                          <p class="small mb-0">Type : Instansi</p>
+                          <h5>Invoice : {{$data->kode_invoice}}</h5>
+                          <h6>{{$data->nama_bus}}</h6>
+                          
+                          <p class="small mb-0">Type Bayar : {{$data->tipe_bayar}}</p>
+                          <p class="small mb-0">Nomor Bayar :{{$data->no_bayar}} </p>
+                          <p class="small mb-0">Tanggal Pickup : {{$data->tgl_pickup}}</p>
+                          <p class="small mb-0">Lokasi Pickup : {{$data->lokasi}}</p>
+                          <p class="small mb-0">Tujuan : {{$data->tujuan}}</p>
+                          <p class="small mb-0">Waktu : {{$data->waktu}}</p>
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center">
@@ -59,13 +63,15 @@
                           <h5 class="fw-normal mb-0">1</h5>
                         </div>
                         <div style="width: 150px;">
-                          <h5 class="mb-0">Rp. 150.000</h5>
+                          <h5 class="mb-0">Rp. {{$data->harga}}</h5>
                         </div>
                         <a href="#" style="color: #cecece;"><i class="fas fa-search"></i></a>
                       </div>
                     </div>
                   </div>
                 </div>
+                    @endforeach 
+
 
                <!-- <div class="card mb-3">
                   <div class="card-body">

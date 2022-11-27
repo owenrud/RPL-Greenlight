@@ -44,7 +44,7 @@ class LoginController extends Controller
             'no_telp'=>$request->no_telp,
             'alamat'=>$request->alamat,
             'tgl_lahir'=>$request->tgl_lahir,
-            'password'=>bcrypt($request->password)
+            'password'=>encrypt($request->password)
         ]);
 
         return redirect('/login')->with('notif','Register Berhasil!');

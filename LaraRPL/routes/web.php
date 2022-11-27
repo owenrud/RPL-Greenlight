@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//CUSTOMERRRRRRRRRRRR
+
 Route::get('/', function () {
     return view('pemesan.home_pemesan');
 });
@@ -42,10 +44,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/booking/invoice', [App\Http\Controllers\Daftar_busController::class,'invoice']);
     Route::post('/booking/invoice/upload', [App\Http\Controllers\Daftar_busController::class,'upload']);
     Route::post('/pilihbooking', [App\Http\Controllers\Daftar_busController::class,'list_booking']);
-    Route::get('/cart', function () {
-        return view('pemesan.shop_cart');
+    Route::get('/cart', [App\Http\Controllers\Daftar_busController::class,'order_history']);
     });
-});
+//CUSTOMERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 
 
 // ADminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
@@ -67,6 +68,19 @@ Route::get('/dataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'g
 Route::get('/dataUser', [App\Http\Controllers\DataUserController::class,'getAllUsers']);
 Route::get('/formInputUser', [App\Http\Controllers\DataUserController::class,'create']);
 Route::post('/addDataUser', [App\Http\Controllers\DataUserController::class,'addDataUser']);
+// UpdateDataUser
+Route::get('/dataUser/editDataUser/{id}', [App\Http\Controllers\DataUserController::class,'editDataUser']);
+Route::patch('/updateDataUser/{id}', [App\Http\Controllers\DataUserController::class,'addUpdateUser']);
+// DeleteUser
+Route::get('/dataUser/hapusDataUser/{id}', [App\Http\Controllers\DataUserController::class,'deleteUser']);
+
+//DeleteBus
+Route::get('/dataBus/hapusDataBus/{id}', [App\Http\Controllers\DaftarBus_AdminController::class,'deleteBus']);
+
+
+Route::get('/formInputBus', [App\Http\Controllers\DaftarBus_AdminController::class,'create']);
+Route::post('/addDataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'addDataBus']);
+
 
 Route::get('/404', function () {
     return view('eror');
