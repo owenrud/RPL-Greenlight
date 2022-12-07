@@ -1,4 +1,5 @@
-@extends('admin.layouts.main') @section('content')
+@extends('admin.layouts.main') 
+@section('content')
 <div class="container-fluid">
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px">
@@ -96,7 +97,7 @@
                         name="password"
                         class="form-control"
                         placeholder="Create password"
-                        value="{{ decrypt($user -> password)}}"
+                        value="{{ $user ->password}}"
                         type="password"
                     />
                 </div>

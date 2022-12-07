@@ -55,7 +55,8 @@
                           <p class="small mb-0">Tanggal Pickup : {{$data->tgl_pickup}}</p>
                           <p class="small mb-0">Lokasi Pickup : {{$data->lokasi}}</p>
                           <p class="small mb-0">Tujuan : {{$data->tujuan}}</p>
-                          <p class="small mb-0">Waktu : {{$data->waktu}}</p>
+                          <p class="small mb-0">Jam Berangkat : {{$data->berangkat}}</p>
+                          <p class="small mb-0">Jam Sampai : {{$data->sampai}}</p>
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center">

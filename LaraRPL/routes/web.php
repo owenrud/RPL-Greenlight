@@ -30,6 +30,7 @@ Route::get('/about', function () {
 Route::get('/register', function () {
     return view('pemesan.register');
 });
+Route::get('/rute/{id}', [App\Http\Controllers\RuteController::class,'getAllRuteById']);
 Route::get('/details/{id}', [App\Http\Controllers\Daftar_busController::class,'details_bus']);
 Route::get('/login', [App\Http\Controllers\LoginController::class,'login'])->middleware('guest')->name('login');
 Route::post('/login/validate', [App\Http\Controllers\LoginController::class,'check']);

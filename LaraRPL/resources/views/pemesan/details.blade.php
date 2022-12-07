@@ -146,22 +146,11 @@
       	</div>
         <nav class="navbar navbar-expand-lg bg-success ">
         <div class="container-fluid">
-        @if ($bus->Sifat=="Pribadi")
-            <form method="POST" action="/pbooking">
+            <form method="GET" action="/rute/{{$bus->id}}">
         @csrf
-        <input type="hidden" name="id" value="{{$bus->id}}">
         <button class="btn btn-success" type="submit">Pesan</button>
         </div>
         </form>
-            @elseif($bus->Sifat=="Instansi")
-            <form method="POST" action="/booking">
-        @csrf
-        <input type="hidden" name="id" value="{{$bus->id}}">
-        <button class="btn btn-success" type="submit">Pesan</button>
-        </div>
-        </form>
-
-        @endif
         
         </nav>
       		

@@ -62,69 +62,46 @@
                             
 							<div class="form-group">
 								<span class="form-label">Lokasi Pickup</span>
-								<input name="lok_pickup" class="form-control" type="text"value="{{$user->alamat}}"  placeholder="Masukkan Lokasi Pickup">
-							</div>
+								<select style="background-color:white;" class="form-control" name="lok_pickup"  id="loc" required>
+                        		@foreach($rute as $datas)
+                        		<option>{{$datas->titik_awal}}</option>
+                       			 @endforeach
+                        		</select>
+								<span class="select-arrow"></span>
+						</div>
 							<div class="form-group">
 								<span class="form-label">Tujuan</span>
-								<input name="tujuan" class="form-control" type="text" placeholder="Masukkan Tujuan Bus">
-							</div>
+								<select class="form-control" style="background-color:white;" name="tujuan"  id="Tuju" required>
+                            		@foreach($rute as $datas)
+                        			<option>{{$datas->titik_sampai}}</option>
+                       				@endforeach
+                        </select>
+						<span class="select-arrow"></span>
+						</div>
 							
 							<div class="row">
-								<div class="col-sm-5">
+								<div class="col-sm-4">
 									<div class="form-group">
 										<span class="form-label">Tanggal Pickup</span>
 										<input name="tgl" class="form-control" type="date" required>
 									</div>
 								</div>
-								<div class="col-sm-7">
+								<div class="col-sm-8">
 									<div class="row">
-										<div class="col-sm-4">
+										<div class="col-sm-5">
 											<div class="form-group">
-												<span class="form-label">Jam</span>
-												<select name="jam" class="form-control">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-													<option>6</option>
-													<option>7</option>
-													<option>8</option>
-													<option>9</option>
-													<option>10</option>
-													<option>11</option>
-													<option>12</option>
-												</select>
-												<span class="select-arrow"></span>
-											</div>
+												<span class="form-label">Berangkat</span>
+												@foreach($rute as $datas)
+										<input name="berangkat" class="form-control" type="text" value={{$datas->jam_berangkat}} readonly>
+										@endforeach
+									</div>
 										</div>
-										<div class="col-sm-4">
+										<div class="col-sm-5">
 											<div class="form-group">
-												<span class="form-label">Menit</span>
-												<select name="menit" class="form-control">
-													<option>05</option>
-													<option>10</option>
-													<option>15</option>
-													<option>20</option>
-													<option>25</option>
-													<option>30</option>
-													<option>35</option>
-													<option>40</option>
-													<option>45</option>
-													<option>50</option>
-													<option>55</option>
-												</select>
-												<span class="select-arrow"></span>
-											</div>
-										</div>
-										<div class="col-sm-4">
-											<div class="form-group">
-												<span class="form-label">AM/PM</span>
-												<select name="waktu" class="form-control">
-													<option>AM</option>
-													<option>PM</option>
-												</select>
-												<span class="select-arrow"></span>
+												<span class="form-label">Sampai</span>
+												@foreach($rute as $datas)
+										<input name="sampai" class="form-control" type="text" value={{$datas->jam_sampai}} readonly>
+										@endforeach
 											</div>
 										</div>
 									</div>

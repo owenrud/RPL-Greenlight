@@ -40,7 +40,7 @@ class DataUserController extends Controller
 
     public function editDataUser($id)
     {
-        $user = DataUser::find( decrypt($id) );
+        $user = DataUser::find($id);
          //dd (decrypt($user->password));
         return view('admin.formUpdateUser', compact(
             'user'
@@ -50,7 +50,7 @@ class DataUserController extends Controller
     public function addUpdateUser(Request $req, $id)
     {
         $user = DataUser::find($id);
-        // dd (decrypt($user->password));
+        dd ($user);
         $user->nama = $req->nama;
         $user->email = $req->email;
         $user->password = encrypt($req->password);

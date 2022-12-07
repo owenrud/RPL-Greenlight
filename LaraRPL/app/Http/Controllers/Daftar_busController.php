@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Invoice;
+use App\Models\Rute;
 
 class Daftar_busController extends Controller
 {
@@ -18,22 +19,37 @@ class Daftar_busController extends Controller
         //Session::set('id_bus',$dbus->id);
        return view('pemesan.details',['bus'=>$dbus]);
     }
-    public function list_booking(Request $request){
+    /*public function list_booking(Request $request){
         $id = $request->input('id_bus');
         $databus = Bus::find($id);
        return view('pemesan.list_booking',['bus'=>$databus]);
-    }
+    }*/
     public function booking(Request $request){
         $id = $request->input('id');
+        $id_rute = $request->input('id_rute');
         $databus = Bus::find($id);
+        //dd($id_rute);
         $datauser = Auth::user();
-        return view('pemesan.booking',['bus'=>$databus,'user'=>$datauser]);
+        $datarute= Rute::where('id_bus','=',$id)->where('id','=',$id_rute)->get();
+        //dd($datarute);
+        return view('pemesan.booking',['bus'=>$databus,'user'=>$datauser,'rute'=>$datarute]);
     }
     public function personal_booking(Request $request){
         $id = $request->input('id');
+        $id_rute = $request->input('id_rute');
         $databus = Bus::find($id);
+        $datainvo = Invoice::where('id_bus_invoice','=',$databus->id)->get();
+        $datarute = Rute::where('id_bus','=',$id)->where('id','=',$id_rute)->get();
+        $kursi= null;
+        foreach($datainvo as $items){
+        $kursi = $items->kursi;
+        }
+        $kursi = array_unique(explode(",",$kursi));
+        //dd($kursi);
+       //dd(is_array($kursi));
+        //dd(!in_array("S10",$kursi));
         $datauser = Auth::user();
-        return view('pemesan.personal_booking',['bus'=>$databus,'user'=>$datauser]);
+        return view('pemesan.personal_booking',['bus'=>$databus,'user'=>$datauser,'kursi'=>$kursi,'rute'=>$datarute]);
     }
     public function invoice(Request $request){
         /*$id = $request->id;
@@ -44,6 +60,17 @@ class Daftar_busController extends Controller
         $a = $request->email;
         $id = $request->id;
         $email = $request->email;*/
+        $dbus = Bus::find($request->id);
+        $sifat = $dbus->Sifat;
+        $harga = $dbus->harga;
+        $kapasitas = $dbus->Kapasitas;
+        $harga_kursi = $harga / $kapasitas;
+        $kursi = $request->jmlh_kursi;
+        if($sifat == 'Pribadi'){
+        $hrg =round($kursi * $harga_kursi,0) ;
+        }else{
+            $hrg = $harga;
+        }
         $data = $request->all();
         //dd($data);
         $datauser = Auth::user();
@@ -52,14 +79,15 @@ class Daftar_busController extends Controller
         
          
         
-        return view('pemesan.invoice',['databook'=>$data,'user'=>$datauser])->with('invo',$uniq_invo);
+        return view('pemesan.invoice',['databook'=>$data,'user'=>$datauser])->with('invo',$uniq_invo)->with('harga',$hrg);
     }
     public function upload(Request $req){
         $data = $req->all();
         //dd($data);
         
         
-        $fileName = time().'.'.$req->bukti_bayar->extension();  
+        $fileName = Auth::user()->nama.'.'.$req->bukti_bayar->extension();  
+        //dd($fileName);
    
         $req->bukti_bayar->move(public_path('storage'), $fileName);
         //dd($fileName);
@@ -69,7 +97,7 @@ class Daftar_busController extends Controller
         }else{
             $seat = null;
         }
-        //dd($seat);
+        //dd($data);
         
         DB::table('invoice')->insert([
             'kode_invoice'=>$req->input('kode_invoice'),
@@ -77,9 +105,10 @@ class Daftar_busController extends Controller
             'tgl_cetak'=>now(),
             'tipe_bayar'=>$req->input('tipe_bayar'),
             'no_bayar'=>$req->input('no_bayar'),
-            'nama_bus'=>$req->input('nama_bus'),
+            'id_bus_invoice'=>$req->id,
             'tgl_pickup'=>$req->input('tgl'),
-           'waktu'=>$req->input('waktu'),
+           'berangkat'=>$req->input('berangkat'),
+           'sampai'=>$req->input('sampai'),
             'lokasi'=>$req->input('lok_pickup'),
             'tujuan'=>$req->input('tujuan'),
             'kursi'=>$req->input('seat'),
@@ -95,6 +124,7 @@ class Daftar_busController extends Controller
     }
     public function order_history(){
         $dinvoice = Invoice::all();
+        //dd($dinvoice);
         //Session::set('id_bus',$dbus->id);
        return view('pemesan.shop_cart',['invoice'=>$dinvoice]);
     }

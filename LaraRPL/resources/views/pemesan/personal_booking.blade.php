@@ -13,7 +13,7 @@
  <link rel="stylesheet" href="../css/seat_style.css" type="text/css" media="all">
  <h1 style="padding:5% 0 0">Book Bus Seat</h1>
     <div class="container">
-
+  
 
         <div class="w3ls-reg">
             <!-- input fields -->
@@ -22,6 +22,7 @@
             <form method="POST" action="/booking/invoice">
             
                 <h2>fill the required details below and select your seats</h2>
+                <input name="id" type="hidden" value="{{$bus->id}}">
                 <input name="email" type="hidden" value="{{$user->email}}">
                 <input name="nama_bus" type="hidden" value="{{$bus->Nama_Bus}}">
                 <div class="row">
@@ -36,7 +37,7 @@
                         <label> Number of Seats
                             <span>*</span>
                         </label>
-                        <input style="background-color:white;" type="number" id="Numseats" required min="1">
+                        <input name="jmlh_kursi" style="background-color:white;" type="number" id="Numseats" required min="1">
                     </div>
                     </div>
                     <div class="row">
@@ -46,68 +47,50 @@
                         </label>
                         <input name ="tgl" type="date" id="Tanggal" required>
                     </div>
-                    <div class="col" style="padding-left:10px;">
-                        <label> Jam
+                    
+                    
+                    <div class="col" style="padding-left:5px;">
+                        <label> Jam Berangkat
                             <span>*</span>
                         </label>
-                        <select name="jam" type="number" class="form-control" id = "Jam" required>
-													<option >1</option>
-													<option >2</option>
-													<option >3</option>
-													<option >4</option>
-													<option >5</option>
-													<option >6</option>
-													<option >7</option>
-													<option >8</option>
-													<option >9</option>
-													<option >10</option>
-													<option >11</option>
-													<option >12</option>
-												</select>
-												<span class="select-arrow"></span>
+                        <select style="background-color:white;" class="form-control" name="berangkat"  id="loc" required>
+                        @foreach($rute as $datas)
+                        <option>{{$datas->jam_berangkat}}</option>
+                    @endforeach
+                    </select>
                     </div>
-                    <div class="col" style="padding-left:10px;">
-                        <label> Menit
+                    <div class="col" style="padding-left:5px;">
+                        <label> Jam Sampai
                             <span>*</span>
                         </label>
-                        <select name="menit" class="form-control" id="Min" required>
-													<option>05</option>
-													<option>10</option>
-													<option>15</option>
-													<option>20</option>
-													<option>25</option>
-													<option>30</option>
-													<option>35</option>
-													<option>40</option>
-													<option>45</option>
-													<option>50</option>
-													<option>55</option>
-												</select>
-												<span class="select-arrow"></span>
+                        <select style="background-color:white;" class="form-control" name="sampai"  id="loc" required>
+                        @foreach($rute as $datas)
+                        <option>{{$datas->jam_sampai}}</option>
+                    @endforeach
+                    </select>
                     </div>
-                    <div class="col" style="padding-left:10px;">
-                        <label> AM/PM
-                            <span>*</span>
-                        </label>
-                        <select name="waktu" class="form-control" id="difftime" required>
-													<option>AM</option>
-													<option>PM</option>
-												</select>
-												<span class="select-arrow"></span>
-                    </div>
+                   
                     </div>
                 <div class="row padding-bottom: 5px;">
-                    <div class="col">
+                    <div class="col" style="padding-right:10px;">
                         <label> Lokasi pickup
                             <span>*</span>
                         </label>
-                        <input style="background-color:white;" name="lok_pickup" type="text" id="loc" required>
+                        <select style="background-color:white;" class="form-control" name="lok_pickup"  id="loc" required>
+                        @foreach($rute as $datas)
+                        <option>{{$datas->titik_awal}}</option>
+                        @endforeach
+                        </select>
                     </div>
-                    <div class="col">
+                    <div class="col" style="padding-right:10px;">
                         <label> Tujuan
                             <span>*</span>
                         </label>
-                        <input style="background-color:white;" name="tujuan" type="text" id="Tuju" required>
+                        <select class="form-control" style="background-color:white;" name="tujuan"  id="Tuju" required>
+                            @foreach($rute as $datas)
+                        <option>{{$datas->titik_sampai}}</option>
+                        @endforeach
+                        </select>
                     </div>
                     <div class="col">
                         <label> Tipe Bayar
@@ -119,9 +102,9 @@
                                                     <option>Ovo</option>
 												</select>
                     </div>
-                    </div>
                 </div>
-                <div class="txt-center">
+                </div>
+                <div class="txt-center" style="padding-top:15px;">
             <button type="button" onclick="takeData(event)">Start Selecting</button>
             </div>
             </div>
@@ -148,7 +131,14 @@
                     <tr>
                     @endif
                     <td>
-                    <input name ="seat[]" type="checkbox" class="seats" value="S{{$i + 1}}">
+                    
+                    
+                    <input name ="seat[]" type="checkbox" class="seats" value="S{{$i + 1}}" @if(in_array("S{{$i+1}}",$kursi)) checked @endif >
+                  
+                    
+                    
+                    
+                    
                     </td>
                     @if(($i+1)% 5 == 0)
                     </tr>
@@ -622,7 +612,7 @@
                     </tr>
                 </table>
             </div>
-            <!-- //details after booking displayed here -->
+            //details after booking displayed here -->
              @csrf
             <div >
             <button type="submit">Confirm Selection</button>

@@ -54,7 +54,7 @@
                                         >
                                             <a
                                                 class="dropdown-item"
-                                                href="/dataUser/editDataUser/{{ encrypt($user -> id) }}"
+                                                href="/dataUser/editDataUser/{{ $user->id }}"
                                                 type="button"
                                                 style="word-spacing: 50px"
                                             >

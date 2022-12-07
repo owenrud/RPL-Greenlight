@@ -24,14 +24,22 @@
           <li class="text-muted mt-1"><span class="text-black">Invoice</span> #{{$invo}}</li>
           <li class="text-black mt-1">{{ now()}}</li>
           <li class="text-black mt-1"><strong>Pembayaran Via : {{$databook['tipe_bayar']}}</strong></li>
-        <li class="text-black mt-1"><strong>12345678765 - a/n Test Invoice</strong></li>
+          @if(ucfirst($databook['tipe_bayar'])==ucfirst('gopay'))
+        <li class="text-black mt-1"><strong>123456789 - a/n Test Rek Gopay</strong></li>
+        @elseif(ucfirst($databook['tipe_bayar'])==ucfirst('ovo'))
+        <li class="text-black mt-1"><strong>988772233 - a/n Test Rek ovo</strong></li>
+        @elseif(ucfirst($databook['tipe_bayar'])==ucfirst('dana'))
+        <li class="text-black mt-1"><strong>266669696 - a/n Test Rek Dana</strong></li>
+        @endif
         </ul>
         <hr>
         <div class="col-xl-10">
           <p>{{$databook['nama_bus']}}</p>
           <small>Tanggal Pickup : {{$databook['tgl']}}</small>
           <br>
-          <small>Waktu : {{$databook['jam']}} : {{$databook['menit']}} : {{$databook['waktu']}}</small>
+          <small>Jam Berangkat : {{$databook['berangkat']}}</small>
+          <br>
+          <small>Jam Sampai : {{$databook['sampai']}}</small>
           <br>
           <small>Lokasi Pickup : {{$databook['lok_pickup']}}</small>
           <br>
@@ -47,7 +55,7 @@
           
         </div>
         <div class="col-xl-2">
-          <p class="float-end">Rp 150.000
+          <p class="float-end">Rp {{$harga}}
           </p>
         </div>
         <hr>
@@ -88,15 +96,17 @@
         <input name="email" type ="hidden" value="{{$databook['email']}}">
         <input name="tipe_bayar" type ="hidden" value="{{$databook['tipe_bayar']}}">
         <input name="no_bayar" type ="hidden" value="12345678">
-        <input name="nama_bus" type ="hidden" value="{{$databook['nama_bus']}}">
+        <input name="id" type ="hidden" value="{{$databook['id']}}">
         <input name="tgl" type ="hidden" value="{{$databook['tgl']}}">
         <input name="lok_pickup" type ="hidden" value="{{$databook['lok_pickup']}}">
         <input name="tujuan" type ="hidden" value="{{$databook['tujuan']}}">
         @if(isset($databook['seat']))
         <input name="seat" type ="hidden" value="{{implode(',', $databook['seat'])}}">
         @endif
-        <input name="harga" type ="hidden" value="150000">
-        <input name="waktu" type ="hidden" value="{{$databook['jam']}} : {{$databook['menit']}} : {{$databook['waktu']}}">
+        
+        <input name="harga" type ="hidden" value="{{$harga}}">
+        <input name="berangkat" type ="hidden" value="{{$databook['berangkat']}}">
+        <input name="sampai" type ="hidden" value="{{$databook['sampai']}}">
 
 
         <input name="bukti_bayar" type="file" style="padding-left:7%;">

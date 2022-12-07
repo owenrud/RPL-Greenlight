@@ -19,16 +19,19 @@ class LoginController extends Controller
     }
     
     public function check(Request $request){
+        
+        //dd($password);
         $validator = Validator::make($request->all(), [
             'email' => 'required|max:255',
-            'password' => 'required',
+            'password'=> 'required',
         ]);
-        
+        //dd($validator);
         
         // Retrieve the validated input...
         
         $validated = $validator->validated();
-         //dd($validated);
+        //dd($validated);
+         //dd(encrypt($validated['password']));
         if(!Auth::attempt($validated)){
             return redirect('/login');
         }
@@ -44,9 +47,9 @@ class LoginController extends Controller
             'no_telp'=>$request->no_telp,
             'alamat'=>$request->alamat,
             'tgl_lahir'=>$request->tgl_lahir,
-            'password'=>encrypt($request->password)
+            'password'=>bcrypt($request->password)
         ]);
-
+        
         return redirect('/login')->with('notif','Register Berhasil!');
     }
 }
