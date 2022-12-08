@@ -52,7 +52,7 @@
         <div class="col-md-12">
           <div class="car-details">
             <div class="img rounded px-4 text-center" width="10px" height="10px" style="background-repeat:no-repeat;">
-              <img style="width:1000px;height:600px;"src="{{ asset('../' . $bus->foto) }}" alt="{{ $bus->foto }}">
+              <img style="width:1000px;height:600px;"src="{{ asset('Storage/' . $bus->foto) }}" alt="{{ $bus->foto }}">
             </div>
             <div class="text text-center">
               <h2>{{$bus->Nama_Bus}}</h2>
