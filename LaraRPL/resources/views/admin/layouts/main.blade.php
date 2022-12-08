@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/adminDashboard">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="adminDashboard">
+                <a class="nav-link" href="/adminDashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -67,8 +67,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Validasi:</h6>
-                        <a class="collapse-item" href="validatePribadi">Validasi Pribadi</a>
-                        <a class="collapse-item" href="validateInstansi">Validasi Instansi</a>
+                        <a class="collapse-item" href="/validatePribadi">Validasi Pribadi</a>
+                        <a class="collapse-item" href="/validateInstansi">Validasi Instansi</a>
                     </div>
                 </div>
             </li>
@@ -84,8 +84,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Setup Master Data</h6>
-                        <a class="collapse-item" href="dataUser">Data User</a>
-                        <a class="collapse-item" href="dataBus">Data Bus</a>
+                        <a class="collapse-item" href="/dataUser">Data User</a>
+                        <a class="collapse-item" href="/dataBus">Data Bus</a>
                     </div>
                 </div>
             </li>

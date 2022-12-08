@@ -16,11 +16,9 @@ class Daftar_busController extends Controller
 {
     public function getAllBus()
     {
-        $datas = Bus::all();
-
-        return view('pemesan.home_pemesan', compact(
-            'datas'
-        ));
+        $databus = Bus::all();
+        //dd($databus);
+        return view('pemesan.home_pemesan', ['datas'=>$databus]);
     }
 
     public function details_bus($id){
@@ -98,7 +96,7 @@ class Daftar_busController extends Controller
         $fileName = Auth::user()->nama.'.'.$req->bukti_bayar->extension();  
         //dd($fileName);
    
-        $req->bukti_bayar->move(public_path('storage'), $fileName);
+        $req->bukti_bayar->move(public_path('invoice-images'), $fileName);
         //dd($fileName);
         $seat = null;
         if(isset($seat)){

@@ -29,7 +29,7 @@ class DataUserController extends Controller
         $user = new DataUser;
         $user->nama = $req->nama;
         $user->email = $req->email;
-        $user->password = encrypt($req->password);
+        $user->password = bcrypt($req->password);
         $user->tgl_lahir = $req->tgl_lahir;
         $user->alamat = $req->alamat;
         $user->no_telp = $req->no_telp;
@@ -50,7 +50,7 @@ class DataUserController extends Controller
     public function addUpdateUser(Request $req, $id)
     {
         $user = DataUser::find($id);
-        dd ($user);
+        //dd ($user);
         $user->nama = $req->nama;
         $user->email = $req->email;
         $user->password = encrypt($req->password);

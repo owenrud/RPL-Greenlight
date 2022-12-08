@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 //CUSTOMERRRRRRRRRRRR
 
-Route::get('/', function () {
-    return view('pemesan.home_pemesan');
-});
+Route::get('/',[App\Http\Controllers\Daftar_busController::class,'getAllBus']);
 // Route::get('/home', function () {
 //     return view('pemesan.home_pemesan');
 // });
@@ -57,12 +55,10 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/adminDashboard', function () {
     return view('admin.dashboard');
 });
-Route::get('/validatePribadi', function () {
-    return view('admin.validatePribadi');
-});
-Route::get('/validateInstansi', function () {
-    return view('admin.validateInstansi');
-});
+Route::get('/validatePribadi', [App\Http\Controllers\AdminValidateController::class,'list_validasi']);
+Route::get('/validateInstansi', [App\Http\Controllers\AdminValidateController::class,'list_validasi_instansi']);
+Route::get('/details_validate/{id}', [App\Http\Controllers\AdminValidateController::class,'details_validate']);
+Route::post('/details_validate/accept', [App\Http\Controllers\AdminValidateController::class,'validate_accept']);
 Route::get('/dataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'getAllBus']);
 Route::get('/dataUser', [App\Http\Controllers\DataUserController::class,'getAllUsers']);
 Route::get('/formInputUser', [App\Http\Controllers\DataUserController::class,'create']);

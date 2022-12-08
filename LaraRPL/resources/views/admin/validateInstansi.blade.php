@@ -21,88 +21,30 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nama Bus</th>
-                                <th>Nama Instansi</th>
-                                <th>Email</th>
-                                <th>Nomor Handphone</th>
+                                <th>ID Bus</th>
+                                <th>kode_invoice</th>
+                                <th>Tanggal cetak</th>
                                 <th>Pembayaran</th>
-                                <th>Lokasi Pickup</th>
-                                <th>Tujuan</th>
-                                <th>Taggal Pickup</th>
-                                <th>Waktu</th>
+                                <th>Harga</th>
+                                <th>Status</th>
                                 <th>Validasi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($invoice as $i)
+                        @if($i->sifat == "Instansi")
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>PT.Taspen</td>
-                                <td>Edinburgh@gmail.com</td>
-                                <td>082147763055</td>
-                                <td>Dana</td>
-                                <td>Seturan</td>
-                                <td>Salatiga</td>
-                                <td>12/11/2002</td>
-                                <td>12:30:00</td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-                                      aria-expanded="false">
-                                        <span>Validasi</span>
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
-                                          Validate <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
-                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
-                                          Tolak <i class="bi bi-trash"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Nixon</td>
-                                <td>PT.Taspen</td>
-                                <td>Edinburgh@gmail.com</td>
-                                <td>082147763055</td>
-                                <td>Dana</td>
-                                <td>Seturan</td>
-                                <td>Salatiga</td>
-                                <td>12/11/2002</td>
-                                <td>12:30:00</td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                      <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-                                      aria-expanded="false">
-                                        <span>Validasi</span>
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
-                                          Validate <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
-                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
-                                          Tolak <i class="bi bi-trash"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                </td>
+                                <td>{{$i->id_bus_invoice}}</td>
+                                <td>{{$i->kode_invoice}}</td>
+                                <td>{{$i->tgl_cetak}}</td>
+                                <td>{{$i->tipe_bayar}}</td>
+                                <td>{{$i->harga}}</td>
+                                @if($i->status == 0)
+                                <td style="color:orange;">Belum Validasi</td>
+                                @else
+                                <td style="color:green;">Tervalidasi</td>
+                                @endif
                                 
-                            </tr>
-                            <tr>
-                                <td>Nixon</td>
-                                <td>PT.Taspen</td>
-                                <td>Edinburgh@gmail.com</td>
-                                <td>082147763055</td>
-                                <td>Dana</td>
-                                <td>Seturan</td>
-                                <td>Salatiga</td>
-                                <td>12/11/2002</td>
-                                <td>12:30:00</td>
                                 <td>
                                     <div class="btn-group dropdown">
                                       <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
@@ -110,18 +52,20 @@
                                         <span>Validasi</span>
                                       </button>
                                       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" href="/mahasiswa/editmahasiswa/" type="button" style="word-spacing:50px">
+                                        <a class="dropdown-item" href="/details_validate/{{$i->id}}" type="button" style="word-spacing:50px">
                                           Validate <i class="bi bi-pencil-square"></i>
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/mahasiswa/hapusmahasiswa/" type="button"
-                                          onclick="return confirm('Apakah Anda Yakin menghapus data ini')" style="word-spacing:32.5px">
+                                        <a class="dropdown-item" href="/hapus" type="button"
+                                          onclick="return confirm('Apakah Anda Yakin menolak pesanan ini?')" style="word-spacing:32.5px">
                                           Tolak <i class="bi bi-trash"></i>
                                         </a>
                                       </div>
                                     </div>
-                                </td>
+                                </td>                          
                             </tr>
+                            @endif
+                            @endforeach
                         </tbody>
                         
                     </table>
