@@ -44,4 +44,14 @@ class AdminValidateController extends Controller
         //dd($dinvo);
         return redirect('/adminDashboard');
     }
+
+    public function validate_reject($id){
+        
+        $dinvo = Invoice::find($id)->delete();
+
+
+
+        //dd($dinvo);
+        return redirect('/adminDashboard');
+    }
 }

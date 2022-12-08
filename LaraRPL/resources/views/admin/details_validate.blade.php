@@ -1,33 +1,38 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<div class="row">
+
 <div class="row text-center">
 <div class="col">
-<img src={{ "owen.jpg" }}>
+<img style="width:300px;height:500px;"src={{ '../invoice-images/'.$invoice->file }}>
 </div>
 
 </div>
-<div class="text-center">
+<div style="padding:5% 15% 20% 40%;"class="container">
 <div class="row">
-<div class="col">   
+
                                       
                                       <form method="POST" action="/details_validate/accept">
                                       @csrf
                                       <input name ="id" type="hidden" value={{$invoice->id}}>
                                       <input name="status" type="hidden" value="1">
-                                        <button type="submit" class="btn btn-outline-info">
+                                        <button type="submit" class="btn btn-outline-success">
                                           Accept 
                                         </button>
                                         </form>
-                                        <button type="button" class="btn btn-outline-info">
-                                        <a class="dropdown-item" href="/details_validate/reject" type="button"
-                                          onclick="return confirm('Apakah Anda Yakin menolak pesanan ini?')" style="word-spacing:32.5px">
-                                          Reject <i class="bi bi-trash"></i>
-                                        </a>
+                                        
+                                       
+                                         <form method="GET" action="/validate/reject/{{$invoice->id}}">
+                                      @csrf
+                                      
+                                        <button type="submit" class="btn btn-outline-danger">
+                                          Reject
                                         </button>
+                                        </form>
+                                        </div>
+                                        
+                                      
                                       </div>
-                                      </div>
-                                      </div>
-                                      </div>
+                                      
+                                      
 @endsection

@@ -56,7 +56,7 @@
                                           Validate <i class="bi bi-pencil-square"></i>
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/hapus" type="button"
+                                        <a class="dropdown-item" href="/validate/reject/{{$i->id}}" type="button"
                                           onclick="return confirm('Apakah Anda Yakin menolak pesanan ini?')" style="word-spacing:32.5px">
                                           Tolak <i class="bi bi-trash"></i>
                                         </a>

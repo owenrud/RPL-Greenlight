@@ -55,9 +55,11 @@
                                           Validate <i class="bi bi-pencil-square"></i>
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/validatePribadi" type="button"
+                                        <form method="GET" action="/validate/reject/{{$i->id}}">
+                                        <button class="dropdown-item" type="submit"
                                           onclick="return confirm('Apakah Anda Yakin menolak pesanan ini?')" style="word-spacing:32.5px">
-                                          Tolak <i class="bi bi-trash"></i>
+                                          Tolak <i class="bi bi-trash"></i></button>
+                                          </form>
                                         </a>
                                       </div>
                                     </div>

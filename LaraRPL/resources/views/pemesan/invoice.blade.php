@@ -25,11 +25,11 @@
           <li class="text-black mt-1">{{ now()}}</li>
           <li class="text-black mt-1"><strong>Pembayaran Via : {{$databook['tipe_bayar']}}</strong></li>
           @if(ucfirst($databook['tipe_bayar'])==ucfirst('gopay'))
-        <li class="text-black mt-1"><strong>123456789 - a/n Test Rek Gopay</strong></li>
+        <li class="text-black mt-1"><strong>6000 {{$user->no_telp}} - a/n Test Rek Gopay</strong></li>
         @elseif(ucfirst($databook['tipe_bayar'])==ucfirst('ovo'))
-        <li class="text-black mt-1"><strong>988772233 - a/n Test Rek ovo</strong></li>
+        <li class="text-black mt-1"><strong>7000 {{$user->no_telp}} - a/n Test Rek ovo</strong></li>
         @elseif(ucfirst($databook['tipe_bayar'])==ucfirst('dana'))
-        <li class="text-black mt-1"><strong>266669696 - a/n Test Rek Dana</strong></li>
+        <li class="text-black mt-1"><strong>8000 {{$user->no_telp}} - a/n Test Rek Dana</strong></li>
         @endif
         </ul>
         <hr>
@@ -95,7 +95,14 @@
         <input name="kode_invoice" type ="hidden" value="{{$invo}}">
         <input name="email" type ="hidden" value="{{$databook['email']}}">
         <input name="tipe_bayar" type ="hidden" value="{{$databook['tipe_bayar']}}">
-        <input name="no_bayar" type ="hidden" value="12345678">
+        @if(ucfirst($databook['tipe_bayar'])==ucfirst('gopay'))
+        <input name="no_bayar" type="hidden" value="6000{{$user->no_telp}}">
+        @elseif(ucfirst($databook['tipe_bayar'])==ucfirst('ovo'))
+        <input name="no_bayar" type="hidden" value="7000{{$user->no_telp}}">
+        @elseif(ucfirst($databook['tipe_bayar'])==ucfirst('dana'))
+        <input name="no_bayar" type="hidden" value="8000{{$user->no_telp}}">
+        @endif
+        <input name="sifat" type ="hidden" value="{{$sifat}}">
         <input name="id" type ="hidden" value="{{$databook['id']}}">
         <input name="tgl" type ="hidden" value="{{$databook['tgl']}}">
         <input name="lok_pickup" type ="hidden" value="{{$databook['lok_pickup']}}">

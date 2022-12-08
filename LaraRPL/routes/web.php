@@ -59,6 +59,7 @@ Route::get('/validatePribadi', [App\Http\Controllers\AdminValidateController::cl
 Route::get('/validateInstansi', [App\Http\Controllers\AdminValidateController::class,'list_validasi_instansi']);
 Route::get('/details_validate/{id}', [App\Http\Controllers\AdminValidateController::class,'details_validate']);
 Route::post('/details_validate/accept', [App\Http\Controllers\AdminValidateController::class,'validate_accept']);
+Route::get('/validate/reject/{id}', [App\Http\Controllers\AdminValidateController::class,'validate_reject']);
 Route::get('/dataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'getAllBus']);
 Route::get('/dataUser', [App\Http\Controllers\DataUserController::class,'getAllUsers']);
 Route::get('/formInputUser', [App\Http\Controllers\DataUserController::class,'create']);

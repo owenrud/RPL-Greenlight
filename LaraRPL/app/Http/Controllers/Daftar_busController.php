@@ -86,7 +86,7 @@ class Daftar_busController extends Controller
         
          
         
-        return view('pemesan.invoice',['databook'=>$data,'user'=>$datauser])->with('invo',$uniq_invo)->with('harga',$hrg);
+        return view('pemesan.invoice',['databook'=>$data,'user'=>$datauser])->with('invo',$uniq_invo)->with('harga',$hrg)->with('sifat',$sifat);
     }
     public function upload(Request $req){
         $data = $req->all();
@@ -113,6 +113,7 @@ class Daftar_busController extends Controller
             'tipe_bayar'=>$req->input('tipe_bayar'),
             'no_bayar'=>$req->input('no_bayar'),
             'id_bus_invoice'=>$req->id,
+            'sifat'=>$req->sifat,
             'tgl_pickup'=>$req->input('tgl'),
            'berangkat'=>$req->input('berangkat'),
            'sampai'=>$req->input('sampai'),
