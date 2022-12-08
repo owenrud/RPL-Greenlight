@@ -90,7 +90,7 @@
 
         <div id="lightbox" class="row">
             @foreach ($datas as $key=>$bus)
-            
+
             <div class="col-sm-6 col-md-3 col-lg-3 p">
                 <div class="portfolio-item">
                     <div class="hover-bg">
@@ -101,7 +101,7 @@
                                 <div class="clearfix"></div>
                                 <i class="fa fa-plus"></i>
                             </div>
-                            <img src="{{ asset('../' . $bus->foto) }}" class="img-responsive" alt="...">
+                            <img src="{{ asset('Storage/' . $bus->foto) }}" class="img-responsive" alt="...">
                         </a>
                     </div>
                 </div>
