@@ -89,135 +89,23 @@
         </div>
 
         <div id="lightbox" class="row">
-
+            @foreach ($datas as $key=>$bus)
             <div class="col-sm-6 col-md-3 col-lg-3 p">
                 <div class="portfolio-item">
                     <div class="hover-bg">
-                        <a href="details/1">
+                        <a href="details/{{ $bus->id }}">
                             <div class="hover-text">
-                                <h4>Bus1</h4>
+                                <h4>{{$bus->Nama_Bus}}</h4>
                                 <small>Description singkat</small>
                                 <div class="clearfix"></div>
                                 <i class="fa fa-plus"></i>
                             </div>
-                            <img src="images/b1.jpg" class="img-responsive" alt="...">
+                            <img src="{{ asset('storage/' . $bus->foto) }}" class="img-responsive" alt="...">
                         </a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-6 col-md-3 col-lg-3 exe i">
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="/details/2">
-                            <div class="hover-text">
-                                <h4>Bus 2</h4>
-                                <small>Description singkat</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="images/b2.jpg" class="img-responsive" alt="...">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3 col-lg-3 p">
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="/details/3">
-                            <div class="hover-text">
-                                <h4>Bus 3</h4>
-                                <small>Deskripsi</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="images/b3.jpg" class="img-responsive" alt="...">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3 col-lg-3 i">
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="/details/4">
-                            <div class="hover-text">
-                                <h4>Bus 4</h4>
-                                <small>Deskripsi</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="images/b4.jpg" class="img-responsive" alt="...">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3 col-lg-3 i">
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="/details/5">
-                            <div class="hover-text">
-                                <h4>Bus 5</h4>
-                                <small>Deskripsi</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="images/b5.jpg" class="img-responsive" alt="...">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3 col-lg-3 p">
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="/details/6">
-                            <div class="hover-text">
-                                <h4>Bus 6</h4>
-                                <small>Deskripsi</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="images/b6.jpg" class="img-responsive" alt="...">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3 col-lg-3 p">
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="/details/7">
-                            <div class="hover-text">
-                                <h4>Bus 7</h4>
-                                <small>Deskripsi</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="images/b7.jpg" class="img-responsive" alt="...">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3 col-lg-3 i">
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="/details/8">
-                            <div class="hover-text">
-                                <h4>Bus 8</h4>
-                                <small>Deskripsi</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="images/b8.jpg" class="img-responsive" alt="...">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 </div>

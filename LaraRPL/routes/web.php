@@ -18,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pemesan.home_pemesan');
 });
-Route::get('/home', function () {
-    return view('pemesan.home_pemesan');
-});
+// Route::get('/home', function () {
+//     return view('pemesan.home_pemesan');
+// });
+Route::get('/home', [App\Http\Controllers\Daftar_busController::class,'getAllBus']);
+
 Route::get('/listbus', function () {
     return view('pemesan.daftarbus');
 });

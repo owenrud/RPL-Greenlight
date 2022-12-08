@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bus;
+use Image;
 
 class DaftarBus_AdminController extends Controller
 {

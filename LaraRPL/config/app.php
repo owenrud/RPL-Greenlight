@@ -161,6 +161,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        // Intervention\Image\ImageServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
@@ -218,7 +220,7 @@ return [
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        // 'Redis' => Illuminate\Support\Facades\Redis::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,
         'Route' => Illuminate\Support\Facades\Route::class,

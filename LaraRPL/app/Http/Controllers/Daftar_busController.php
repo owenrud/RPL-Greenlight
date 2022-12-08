@@ -14,6 +14,15 @@ use App\Models\Rute;
 
 class Daftar_busController extends Controller
 {
+    public function getAllBus()
+    {
+        $datas = Bus::all();
+
+        return view('pemesan.home_pemesan', compact(
+            'datas'
+        ));
+    }
+
     public function details_bus($id){
         $dbus = Bus::find($id);
         //Session::set('id_bus',$dbus->id);
