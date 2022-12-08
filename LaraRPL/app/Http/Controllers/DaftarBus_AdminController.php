@@ -27,9 +27,7 @@ class DaftarBus_AdminController extends Controller
 
     public function addDataBus(Request $req)
     {
-        $fileName = time().'.'.$req->foto->extension();  
-        $req->foto->move(public_path('storage'), $fileName);
-
+        
         $bus = new Bus;
         $bus->Nama_Bus = $req->Nama_Bus;
         $bus->Sifat = $req->Sifat;
@@ -37,15 +35,15 @@ class DaftarBus_AdminController extends Controller
         $bus->pabrikan = $req->pabrikan;
         $bus->no_mesin = $req->no_mesin;
         $bus->Plat_nomor = $req->Plat_nomor;
-        $bus->foto = $req->foto;
+        if($req->file('foto')){
+            $bus->foto = $req->file('foto')->store('bus-images');
+        }
         $bus->Area = $req->Area;
         $bus->Kapasitas = $req->Kapasitas;
         $bus->Bagasi = $req->Bagasi;
         $bus->save();
 
-        return redirect('/dataBus')
-            ->with('success','You have successfully upload file.')
-            ->with('file',$fileName);
+        return redirect('/dataBus');
     }
 
     public function deleteBus($id) {

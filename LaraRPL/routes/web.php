@@ -52,10 +52,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 // ADminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
-Route::get('/admin', function () {
-    return view('welcome');
-});
-
 Route::get('/adminDashboard', function () {
     return view('admin.dashboard');
 });
