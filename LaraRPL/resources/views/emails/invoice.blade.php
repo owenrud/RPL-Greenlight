@@ -16,15 +16,15 @@
 <div class="card">
   <div class="card-body mx-4">
     <div class="container">
-      <p class="my-5 mx-5" style="font-size: 30px;">Thank for your order</p>
+      <p class="my-5 mx-5" style="font-size: 30px;">Thank for your Payment</p>
       <div class="row">
         <ul class="list-unstyled">
         {{$databook['email']}}
           <li class="text-black"></li>
-          <li class="text-muted mt-1"><span class="text-black">Invoice</span> #{{$databook['kode_invoice']}}</li>
-          <li class="text-black mt-1">{{ now()}}</li>
+          <li class="text-muted mt-1"><span class="text-black">Invoice</span><strong> #{{$databook['kode_invoice']}}</strong></li>
+          <li class="text-black mt-1">Tanggal Cetak : {{ now()}}</li>
           <li class="text-black mt-1"><strong>Pembayaran Via : {{$databook['tipe_bayar']}}</strong></li>
-        <li class="text-black mt-1"><strong>{{$databook['no_bayar']}}</strong></li>
+        <li class="text-black mt-1"><strong>Nomor Bayar :{{$databook['no_bayar']}}</strong></li>
 
         </ul>
         <hr>
