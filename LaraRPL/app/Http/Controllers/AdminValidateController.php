@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
 use App\Mail\Notification;
 use App\Models\Invoice;
+use PDF;
 
 class AdminValidateController extends Controller
 {
@@ -31,14 +32,17 @@ class AdminValidateController extends Controller
     public function validate_accept(Request $request){
         
         $dinvo = Invoice::find($request->id);
+        $databook = Invoice::find($request->id);
         $dinvo->status = $request->status;
         $dinvo->save();
         $email= $dinvo->email;
+        $pdf = PDF::loadView('emails.invoice',['databook'=>$databook])->setOptions(['defaultFont' => 'sans-serif']);
         $notification = new Notification($dinvo);
-        $notification->email = $email;
+        $notification->attachData($pdf->output(),"invoice.pdf");
+        
 
         if($notification){
-            Mail::to($email)->send(new Notification($dinvo));
+            Mail::to($email)->send($notification);
         }
 
         //dd($dinvo);
