@@ -42,6 +42,7 @@ class DaftarBus_AdminController extends Controller
         $bus->Area = $req->Area;
         $bus->Kapasitas = $req->Kapasitas;
         $bus->Bagasi = $req->Bagasi;
+        $bus->Harga = $req->Harga;
         $bus->save();
 
         return redirect('/dataBus');
