@@ -31,12 +31,18 @@ class LoginController extends Controller
         
         $validated = $validator->validated();
         //dd($validated);
-         //dd(encrypt($validated['password']));
+         
         if(!Auth::attempt($validated)){
             return redirect('/login');
         }
         else{
+            $user = Auth::user();
+            if($user->level == 1){
             return redirect()->to($request->input('url'))->with('notif','Login Berhasil!');
+            }else{
+            return redirect('/adminDashboard');
+            }
+
         }
             
     }
