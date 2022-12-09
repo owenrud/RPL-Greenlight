@@ -34,11 +34,11 @@ class AdminValidateController extends Controller
         $dinvo->status = $request->status;
         $dinvo->save();
         $email= $dinvo->email;
-        $notification = new Notification;
+        $notification = new Notification($dinvo);
         $notification->email = $email;
 
         if($notification){
-            Mail::to($email)->send(new Notification($email));
+            Mail::to($email)->send(new Notification($dinvo));
         }
 
         //dd($dinvo);
