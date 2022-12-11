@@ -47,16 +47,22 @@ class Daftar_busController extends Controller
         $databus = Bus::find($id);
         $datainvo = Invoice::where('id_bus_invoice','=',$databus->id)->get();
         $datarute = Rute::where('id_bus','=',$id)->where('id','=',$id_rute)->get();
-        $kursi= null;
+        $kapasitas = $databus->Kapasitas;
+        $jum = null;
         foreach($datainvo as $items){
-        $kursi = $items->kursi;
+        $jum = $jum + $items->jmlh_kursi;
+        $tersedia = $kapasitas - $jum;
         }
-        $kursi = array_unique(explode(",",$kursi));
-        //dd($kursi);
+       
+       //dd($tersedia);
        //dd(is_array($kursi));
         //dd(!in_array("S10",$kursi));
         $datauser = Auth::user();
-        return view('pemesan.personal_booking',['bus'=>$databus,'user'=>$datauser,'kursi'=>$kursi,'rute'=>$datarute]);
+        if($tersedia !== 0){
+        return view('pemesan.personal_booking',['bus'=>$databus,'user'=>$datauser,'stock'=>$tersedia,'rute'=>$datarute]);
+        }else{
+            return redirect("/home")->with('message',"Bus yang Dipilih, Tidak Tersedia Kursi");
+        }
     }
     public function invoice(Request $request){
         /*$id = $request->id;
@@ -119,7 +125,7 @@ class Daftar_busController extends Controller
            'sampai'=>$req->input('sampai'),
             'lokasi'=>$req->input('lok_pickup'),
             'tujuan'=>$req->input('tujuan'),
-            'kursi'=>$req->input('seat'),
+            'jmlh_kursi'=>$req->input('jumlah_kursi'),
             'harga'=>$req->input('harga'),
             'file'=>$fileName,
         ]);

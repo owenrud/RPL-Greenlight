@@ -39,10 +39,10 @@
           <br>
           <small>Tujuan : {{$databook['tujuan']}} </small>
           <br>
-          @if(isset($databook['seat']))
+          @if(isset($databook['jmlh_kursi']))
            @php   
-           echo("Seat : ");
-            echo implode(",",$databook['seat']);
+           echo("Jumlah Kursi :").$databook['jmlh_kursi'];
+            
             @endphp
           @endif
           

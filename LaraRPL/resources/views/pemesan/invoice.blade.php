@@ -45,10 +45,10 @@
           <br>
           <small>Tujuan : {{$databook['tujuan']}} </small>
           <br>
-          @if(isset($databook['seat']))
+          @if(isset($databook['jmlh_kursi']))
            @php   
-           echo("Seat : ");
-            echo implode(",",$databook['seat']);
+           echo("Jumlah Kursi :").$databook['jmlh_kursi'];
+            
             @endphp
           @endif
           
@@ -107,8 +107,8 @@
         <input name="tgl" type ="hidden" value="{{$databook['tgl']}}">
         <input name="lok_pickup" type ="hidden" value="{{$databook['lok_pickup']}}">
         <input name="tujuan" type ="hidden" value="{{$databook['tujuan']}}">
-        @if(isset($databook['seat']))
-        <input name="seat" type ="hidden" value="{{implode(',', $databook['seat'])}}">
+        @if(isset($databook['jmlh_kursi']))
+        <input name="jumlah_kursi" type ="hidden" value="{{$databook['jmlh_kursi']}}">
         @endif
         
         <input name="harga" type ="hidden" value="{{$harga}}">

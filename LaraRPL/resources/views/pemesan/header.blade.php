@@ -20,6 +20,14 @@
             {{ session('success') }}
         </div>
     @endif
+    @if(session('message'))
+<div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="fa fa-times"></i>
+        </button>
+        <strong>{{ session('message') }}</strong> 
+    </div>
+@endif
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
