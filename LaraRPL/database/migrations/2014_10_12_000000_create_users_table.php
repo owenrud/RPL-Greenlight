@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('tgl_lahir');
             $table->string('alamat');
             $table->string('no_telp');
+            $table->string('level');
             $table->timestamps();
         });
     }

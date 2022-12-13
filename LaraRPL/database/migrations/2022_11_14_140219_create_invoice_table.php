@@ -16,19 +16,22 @@ class CreateInvoiceTable extends Migration
         //Schema::dropIfExists('bus');
         Schema::create('invoice', function (Blueprint $table) {
             $table->id()->Primary();
+            $table->string('id_bus_invoice');
+            $table->string('sifat');
             $table->string('kode_invoice');
             $table->string('email');
             $table->string('tgl_cetak');
             $table->string('tipe_bayar');
             $table->string('no_bayar');
-            $table->string('nama_bus');
             $table->string('tgl_pickup');
-            $table->string('waktu');
+            $table->string('berangkat');
+            $table->string('sampai');
             $table->string('lokasi');
             $table->string('tujuan');
-            $table->string('kursi');
+            $table->string('jmlh_kursi');
             $table->string('harga');
             $table->string('file');
+            $table->integer('status');
             $table->timestamps();
         });
     }

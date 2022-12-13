@@ -34,7 +34,7 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Email</span>
-										<input name="email" class="form-control" type="email" value="{{$user->email}}">
+										<input name="email" class="form-control" type="email" value="{{$user->email}}" readonly>
 									</div>
 								</div>
 							</div>
@@ -42,7 +42,7 @@
 							<div class="col-sm-6">
 							<div class="form-group">
 								<span class="form-label">Nomor Handphone</span>
-								<input name="no_telp" class="form-control" type="tel" value="{{$user->no_telp}}" placeholder="Masukkan Nomor Handphone anda">
+								<input name="no_telp" class="form-control" type="tel" value="{{$user->no_telp}}" placeholder="Masukkan Nomor Handphone anda" readonly>
 							</div>
 							</div>
 							<div class="col-sm-6">
@@ -62,32 +62,32 @@
                             <div class="col-sm-6">
 							<div class="form-group">
 								<span class="form-label">Lokasi Pickup</span>
-								<select style="background-color:white;" class="form-control" name="lok_pickup"  id="loc" required>
+								<select style="background-color:white;" class="form-control" name="lok_pickup"  id="loc" readonly>
                         		@foreach($rute as $datas)
                         		<option>{{$datas->titik_awal}}</option>
                        			 @endforeach
                         		</select>
-								<span class="select-arrow"></span>
+								
 						</div>
                         </div>
                         <div class="col-sm-6">
 							<div class="form-group">
 								<span class="form-label">Tujuan</span>
-								<select class="form-control" style="background-color:white;" name="tujuan"  id="Tuju" required>
+								<select class="form-control" style="background-color:white;" name="tujuan"  id="Tuju" readonly>
                             		@foreach($rute as $datas)
                         			<option>{{$datas->titik_sampai}}</option>
                        				@endforeach
                         </select>
-						<span class="select-arrow"></span>
+						
 						</div>
                         </div>
                         </div>
                         <div class ="row">
                         <div class="col-sm-8">
 									<div class="form-group">
-										<span class="form-label">Jumlah Kursi</span>
+										<span class="form-label">Jumlah Kursi Yang Di Pesan :</span>
 										<input name="jmlh_kursi" class="form-control" type="number" required>
-                                        <span class="form-label">Jumlah Kursi Tersedia : {{$stock}}</span>
+                                        <span style="color:orange;"class="form-label"><strong>Jumlah Kursi Yang Tersedia : {{$stock}}</strong></span>
 									</div>
 								</div>
                                 </div>

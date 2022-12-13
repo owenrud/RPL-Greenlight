@@ -15,6 +15,7 @@ class CreateRuteTable extends Migration
     {
         Schema::create('rute', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_bus');
             $table->string('titik_awal');
             $table->string('titik_sampai');
             $table->string('jam_berangkat');

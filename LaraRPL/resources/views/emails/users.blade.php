@@ -11,6 +11,7 @@ Jam Berangkat : {{$dinvo->berangkat}}<br>
 Jam Sampai : {{$dinvo->sampai}}<br>
 Lokasi : {{$dinvo->lokasi}}<br>
 Tujuan : {{$dinvo->tujuan}}<br>
+Jumlah Kursi : {{$dinvo->jmlh_kursi}}<br>
 
 @component('mail::button', ['url' => 'http://127.0.0.1:8000/home'])
 Blog

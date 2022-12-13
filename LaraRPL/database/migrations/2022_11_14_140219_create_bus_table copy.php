@@ -18,15 +18,15 @@ class CreateBusTable extends Migration
             $table->id()->Primary();
             $table->string('Nama_Bus');
             $table->string('Sifat');
+            $table->string('Area');
             $table->string('Kode_Bus')->Unique();
             $table->string('pabrikan');
             $table->string('no_mesin');
             $table->string('Plat nomor')->Unique();
-            $table->string('Area');
             $table->string('Kapasitas');
             $table->string('Bagasi');
-            $table->string('Plat nomor')->Unique();
             $table->string('foto');
+            $table->string('harga');
             $table->timestamps();
         });
     }
