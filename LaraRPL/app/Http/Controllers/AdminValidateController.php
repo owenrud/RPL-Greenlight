@@ -46,7 +46,7 @@ class AdminValidateController extends Controller
         }
 
         //dd($dinvo);
-        return redirect('/adminDashboard');
+        return redirect('/validatePribadi');
     }
 
     public function validate_reject($id){
@@ -56,6 +56,6 @@ class AdminValidateController extends Controller
 
 
         //dd($dinvo);
-        return redirect('/adminDashboard');
+        return redirect('/validatePribadi');
     }
 }

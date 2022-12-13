@@ -92,30 +92,30 @@
             @foreach ($datas as $key=>$bus)
             @if($bus->Sifat == "Pribadi")
             <div class="col-sm-6 col-md-3 col-lg-3 p">
-            @else
-            <div class="col-sm-6 col-md-3 col-lg-3 i">
-            @endif
-                <div class="portfolio-item">
-                    <div class="hover-bg">
-                        <a href="details/{{ $bus->id }}">
-                            <div class="hover-text">
-                                <h4>{{$bus->Nama_Bus}}</h4>
-                                <small>Description singkat</small>
-                                <div class="clearfix"></div>
-                                <i class="fa fa-plus"></i>
-                            </div>
-                            <img src="{{$bus->foto}}" class="img-responsive" alt="...">
-                        </a>
+                @else
+                <div class="col-sm-6 col-md-3 col-lg-3 i">
+                    @endif
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="details/{{ $bus->id }}">
+                                <div class="hover-text">
+                                    <h4>{{$bus->Nama_Bus}}</h4>
+                                    <small>Description singkat</small>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{{asset('storage/'.$bus->foto)}}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
-</div>
 
 
 
 
 
-@endsection
+    @endsection

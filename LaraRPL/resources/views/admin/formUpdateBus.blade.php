@@ -102,6 +102,16 @@
                         value="{{ $bus -> Plat_nomor}}" />
                 </div>
 
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-hashtag"></i>
+                        </span>
+                    </div>
+                    <input name="Harga" class="form-control" placeholder="Harga" type="text"
+                        value="{{ $bus -> harga}}" />
+                </div>
+
                 <!-- form-group end.// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
