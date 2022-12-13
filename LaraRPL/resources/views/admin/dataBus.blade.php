@@ -12,12 +12,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table
-                        class="table table-bordered"
-                        id="dataTable"
-                        width="100%"
-                        cellspacing="0"
-                    >
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Nama Bus</th>
@@ -29,7 +24,7 @@
                                 <th>Plat Nomor</th>
                                 <th>Kapasitas</th>
                                 <th>Bagasi</th>
-                                <th>Foto</th>
+                                <!-- <th>Foto</th> -->
                                 <th>CRUD</th>
                             </tr>
                         </thead>
@@ -45,40 +40,25 @@
                                 <td>{{ $bus->Plat_nomor}}</td>
                                 <td>{{ $bus->Kapasitas}} Penumpang</td>
                                 <td>{{ $bus->Bagasi}} Kg</td>
-                                <td>{{ $bus->foto}}</td>
+                                <!-- <td>{{ $bus->foto}}</td> -->
                                 <td>
                                     <div class="btn-group dropdown">
-                                        <button
-                                            type="button"
+                                        <button type="button"
                                             class="btn btn-outline-info dropdown-toggle dropdown-toggle-split"
-                                            data-toggle="dropdown"
-                                            aria-expanded="false"
-                                        >
+                                            data-toggle="dropdown" aria-expanded="false">
                                             <span>Edit</span>
                                         </button>
-                                        <div
-                                            class="dropdown-menu"
-                                            aria-labelledby="dropdownMenu2"
-                                        >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/mahasiswa/editmahasiswa/"
-                                                type="button"
-                                                style="word-spacing: 50px"
-                                            >
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <a class="dropdown-item" href="/dataBus/editDataBus/{{ encrypt($bus->id) }}"
+                                                type="button" style="word-spacing: 50px">
                                                 Edit
-                                                <i
-                                                    class="bi bi-pencil-square"
-                                                ></i>
+                                                <i class="bi bi-pencil-square"></i>
                                             </a>
                                             <div class="dropdown-divider"></div>
-                                            <a
-                                                class="dropdown-item"
-                                                href="/dataBus/hapusDataBus/{{ encrypt($bus -> id) }}"
-                                                type="button"
+                                            <a class="dropdown-item"
+                                                href="/dataBus/hapusDataBus/{{ encrypt($bus -> id) }}" type="button"
                                                 onclick="return confirm('Apakah Anda Yakin menghapus data ini')"
-                                                style="word-spacing: 32.5px"
-                                            >
+                                                style="word-spacing: 32.5px">
                                                 Hapus
                                                 <i class="bi bi-trash"></i>
                                             </a>

@@ -74,6 +74,8 @@ Route::get('/dataUser/hapusDataUser/{id}', [App\Http\Controllers\DataUserControl
 Route::get('/dataBus/hapusDataBus/{id}', [App\Http\Controllers\DaftarBus_AdminController::class,'deleteBus']);
 
 
+Route::get('/dataBus/editDataBus/{id}', [App\Http\Controllers\DaftarBus_AdminController::class,'editDataBus']);
+Route::patch('/updateDataBus/{id}', [App\Http\Controllers\DaftarBus_AdminController::class,'addUpdateBus']);
 Route::get('/formInputBus', [App\Http\Controllers\DaftarBus_AdminController::class,'create']);
 Route::post('/addDataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'addDataBus']);
 

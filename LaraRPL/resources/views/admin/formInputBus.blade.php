@@ -4,11 +4,7 @@
         <article class="card-body mx-auto" style="max-width: 400px">
             <h4 class="card-title mt-3 text-center">Tambah Data User</h4>
 
-            <form
-                method="POST"
-                action="/addDataBus"
-                enctype="multipart/form-data"
-            >
+            <form method="POST" action="/addDataBus" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -16,12 +12,7 @@
                             <i class="fa fa-user"></i>
                         </span>
                     </div>
-                    <input
-                        name="Nama_Bus"
-                        class="form-control"
-                        placeholder="Nama Bus"
-                        type="text"
-                    />
+                    <input name="Nama_Bus" class="form-control" placeholder="Nama Bus" type="text" />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
@@ -59,12 +50,7 @@
                             <i class="fa fa-hashtag"></i>
                         </span>
                     </div>
-                    <input
-                        name="Kode_Bus"
-                        class="form-control"
-                        placeholder="Kode Bus"
-                        type="text"
-                    />
+                    <input name="Kode_Bus" class="form-control" placeholder="Kode Bus" type="text" />
                 </div>
 
                 <div class="form-group input-group">
@@ -73,12 +59,7 @@
                             <i class="fa fa-industry"></i>
                         </span>
                     </div>
-                    <input
-                        name="pabrikan"
-                        class="form-control"
-                        placeholder="Pabrikan Bus"
-                        type="text"
-                    />
+                    <input name="pabrikan" class="form-control" placeholder="Pabrikan Bus" type="text" />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
@@ -87,12 +68,7 @@
                             <i class="fa fa-hashtag"></i>
                         </span>
                     </div>
-                    <input
-                        name="no_mesin"
-                        class="form-control"
-                        placeholder="Nomor Mesin"
-                        type="text"
-                    />
+                    <input name="no_mesin" class="form-control" placeholder="Nomor Mesin" type="text" />
                 </div>
 
                 <!-- form-group end.// -->
@@ -102,12 +78,7 @@
                             <i class="fa fa-hashtag"></i>
                         </span>
                     </div>
-                    <input
-                        name="Plat_nomor"
-                        class="form-control"
-                        placeholder="Plat Nomor"
-                        type="text"
-                    />
+                    <input name="Plat_nomor" class="form-control" placeholder="Plat Nomor" type="text" />
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -115,12 +86,7 @@
                             <i class="fa fa-hashtag"></i>
                         </span>
                     </div>
-                    <input
-                        name="Harga"
-                        class="form-control"
-                        placeholder="Harga"
-                        type="text"
-                    />
+                    <input name="Harga" class="form-control" placeholder="Harga" type="text" />
                 </div>
 
                 <!-- form-group end.// -->
@@ -130,12 +96,7 @@
                             <i class="fa fa-warehouse"></i>
                         </span>
                     </div>
-                    <input
-                        name="Kapasitas"
-                        class="form-control"
-                        placeholder="Kapasitas Bus"
-                        type="number"
-                    />
+                    <input name="Kapasitas" class="form-control" placeholder="Kapasitas Bus" type="number" />
                 </div>
 
                 <!-- form-group end.// -->
@@ -145,12 +106,7 @@
                             <i class="fa fa-suitcase-rolling"></i>
                         </span>
                     </div>
-                    <input
-                        name="Bagasi"
-                        class="form-control"
-                        placeholder="Bagasi Bus"
-                        type="number"
-                    />
+                    <input name="Bagasi" class="form-control" placeholder="Bagasi Bus" type="number" />
                 </div>
 
                 <!-- form-group end.// -->
@@ -160,12 +116,7 @@
                             <i class="fa fa-image"></i>
                         </span>
                     </div>
-                    <input
-                        name="foto"
-                        class="form-control"
-                        placeholder="Foto Bus"
-                        type="file"
-                    />
+                    <input name="foto" class="form-control" placeholder="Foto Bus" type="file" />
                 </div>
 
                 {{-- Untuk Role --}}

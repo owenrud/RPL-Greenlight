@@ -43,7 +43,7 @@
   <nav class="navbar navbar-expand-lg bg-primary ">
     <div class="container-fluid">
       <a class="navbar-brand text-light" href="/home">Back to Home</a>
-      
+
     </div>
   </nav>
   <section class="ftco-section ftco-car-details">
@@ -52,7 +52,7 @@
         <div class="col-md-12">
           <div class="car-details">
             <div class="img rounded px-4 text-center" width="10px" height="10px" style="background-repeat:no-repeat;">
-              <img style="width:1000px;height:600px;"src="../{{$bus->foto}}" alt="{{ $bus->foto }}">
+              <img style="width:1000px;height:600px;" src="{{asset('storage/'.$bus->foto)}}" alt="{{ $bus->foto }}">
             </div>
             <div class="text text-center">
               <h2>{{$bus->Nama_Bus}}</h2>
