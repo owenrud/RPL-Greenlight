@@ -52,9 +52,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 // ADminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
-Route::get('/adminDashboard', function () {
-    return view('admin.dashboard');
-});
+Route::get('/manajer', [App\Http\Controllers\ManajerController::class,'getAllData']);
+Route::get('/adminDashboard', [App\Http\Controllers\DaftarBus_AdminController::class,'getAllData']);
 Route::get('/validatePribadi', [App\Http\Controllers\AdminValidateController::class,'list_validasi']);
 Route::get('/validateInstansi', [App\Http\Controllers\AdminValidateController::class,'list_validasi_instansi']);
 Route::get('/details_validate/{id}', [App\Http\Controllers\AdminValidateController::class,'details_validate']);
@@ -78,6 +77,13 @@ Route::get('/dataBus/editDataBus/{id}', [App\Http\Controllers\DaftarBus_AdminCon
 Route::patch('/updateDataBus/{id}', [App\Http\Controllers\DaftarBus_AdminController::class,'addUpdateBus']);
 Route::get('/formInputBus', [App\Http\Controllers\DaftarBus_AdminController::class,'create']);
 Route::post('/addDataBus', [App\Http\Controllers\DaftarBus_AdminController::class,'addDataBus']);
+
+Route::get('/dataRute', [App\Http\Controllers\DataRuteController::class,'getAllRutes']);
+Route::get('/formInputRute', [App\Http\Controllers\DataRuteController::class,'create']);
+Route::post('/addDataRute', [App\Http\Controllers\DataRuteController::class,'addDataRute']);
+Route::get('/dataRute/editDataRute/{id}', [App\Http\Controllers\DataRuteController::class,'editDataRute']);
+Route::get('/dataRute/hapusDataRute/{id}', [App\Http\Controllers\DataRuteController::class,'deleteRute']);
+Route::patch('/updateDataRute/{id}', [App\Http\Controllers\DataRuteController::class,'addUpdateRute']);
 
 
 Route::get('/404', function () {

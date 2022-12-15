@@ -50,8 +50,12 @@ class Daftar_busController extends Controller
         $kapasitas = $databus->Kapasitas;
         $jum = null;
         foreach($datainvo as $items){
+            if($items->sifat == "Pribadi"){
         $jum = $jum + $items->jmlh_kursi;
         $tersedia = $kapasitas - $jum;
+            }else{
+                $tersedia = $kapasitas - $kapasitas;
+            }
         }
        
        //dd($tersedia);

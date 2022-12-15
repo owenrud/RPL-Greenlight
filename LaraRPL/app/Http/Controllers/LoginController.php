@@ -19,8 +19,10 @@ class LoginController extends Controller
     }
     
     public function check(Request $request){
+        $url = url()->previous();
+        $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
         
-        //dd($password);
+        //dd($url);
         $validator = Validator::make($request->all(), [
             'email' => 'required|max:255',
             'password'=> 'required',

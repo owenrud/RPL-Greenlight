@@ -104,7 +104,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{{asset('storage/'.$bus->foto)}}" class="img-responsive" alt="...">
+                                <img src="{{$bus->foto}}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>

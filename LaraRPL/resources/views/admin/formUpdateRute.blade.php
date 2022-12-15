@@ -3,11 +3,11 @@
 <div class="container-fluid">
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px">
-            <h4 class="card-title mt-3 text-center">Ubah Data User</h4>
+            <h4 class="card-title mt-3 text-center">Ubah Data rute</h4>
 
             <form
                 method="POST"
-                action="/updateDataUser/{{ $user -> id }}"
+                action="/updateDataRute/{{ $rute -> id }}"
                 enctype="multipart/form-data"
             >
                 @csrf
@@ -15,93 +15,78 @@
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fa fa-user"></i>
+                            <i class="fa fa-hashtag"></i>
                         </span>
                     </div>
                     <input
-                        name="nama"
+                        name="id_bus"
                         class="form-control"
                         placeholder="Nama"
                         type="text"
-                        value="{{ $user -> nama}}"
+                        value="{{ $rute -> id_bus}}"
                     />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fa fa-envelope"></i>
+                            <i class="fa fa-city"></i>
                         </span>
                     </div>
                     <input
-                        name="email"
+                        name="titik_awal"
                         class="form-control"
                         placeholder="Email"
-                        type="email"
-                        value="{{ $user -> email}}"
+                        type="text"
+                        value="{{ $rute -> titik_awal}}"
                     />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fa fa-calendar"></i>
+                            <i class="fa fa-city"></i>
                         </span>
                     </div>
                     <input
-                        name="tgl_lahir"
+                        name="titik_sampai"
                         class="form-control"
                         placeholder="Tanggal Lahir"
-                        type="date"
-                        value="{{ $user -> tgl_lahir}}"
+                        type="text"
+                        value="{{ $rute -> titik_sampai}}"
                     />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fa fa-building"></i>
+                            <i class="fa fa-clock"></i>
                         </span>
                     </div>
                     <input
-                        name="alamat"
+                        name="berangkat"
                         class="form-control"
                         placeholder="Alamat"
-                        value="{{ $user -> alamat}}"
-                        type="text"
+                        value="{{ $rute -> jam_berangkat}}"
+                        type="time"
                     />
                 </div>
                 <!-- form-group end.// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fa fa-phone"></i>
+                            <i class="fa fa-clock"></i>
                         </span>
                     </div>
                     <input
-                        name="no_telp"
+                        name="sampai"
                         class="form-control"
                         placeholder="No Telp"
-                        value="{{ $user -> no_telp}}"
-                        type="number"
+                        value="{{ $rute -> jam_sampai}}"
+                        type="time"
                     />
-                </div>
-                <!-- form-group end.// -->
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fa fa-lock"></i>
-                        </span>
                     </div>
-                    <input
-                        name="password"
-                        class="form-control"
-                        placeholder="Create password"
-                        value="{{ $user ->password}}"
-                        type="password"
-                    />
-                </div>
-
+                
                 <!-- {{-- Untuk Role --}} -->
 
                 <!-- {{--
@@ -113,7 +98,7 @@
                     </div>
                     <select class="custom-select" style="max-width: 150px">
                         <option value="admin">Admin</option>
-                        <option value="user">User</option>
+                        <option value="rute">rute</option>
                     </select>
                 </div>
                 --}} -->

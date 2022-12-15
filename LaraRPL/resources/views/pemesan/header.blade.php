@@ -4,7 +4,7 @@
     
     <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-      @if(Session::get('notif'))
+      @if(session('notif'))
 <div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert">
             <i class="fa fa-times"></i>
@@ -28,6 +28,7 @@
         <strong>{{ session('message') }}</strong> 
     </div>
 @endif
+
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -52,8 +53,8 @@
   <img src="../images/personal.png" style="width:25px;height:25px">
   </button>
   <div class="dropdown-menu" style="margin-top: 20px;background-color:#10069f;"aria-labelledby="dropdownMenuButton">
-     <a class="dropdown-item {{Auth::check()?'disabled':''}}" style="color: white;" href="/login" >Login</a><br>
-    <a class="dropdown-item {{!Auth::check()?'disabled':''}}" style="color: antiquewhite;" href="/logout">Logout</a>
+     <button class="btn btn-success"{{Auth::check()?'disabled':''}}><a class="dropdown-item " style="color: white;" href="/login" >Login</a></button><br>
+   <button class="btn btn-warning" {{!Auth::check()?'disabled':''}}> <a class="dropdown-item " style="color: antiquewhite;" href="/logout" >Logout</a></button>
   </div>
 </div>
 </li>
