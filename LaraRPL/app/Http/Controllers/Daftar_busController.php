@@ -48,13 +48,12 @@ class Daftar_busController extends Controller
         $datainvo = Invoice::where('id_bus_invoice','=',$databus->id)->get();
         $datarute = Rute::where('id_bus','=',$id)->where('id','=',$id_rute)->get();
         $kapasitas = $databus->Kapasitas;
-        $jum = null;
+        $jum = 0;
+        $tersedia = $databus->Kapasitas;
         foreach($datainvo as $items){
             if($items->sifat == "Pribadi"){
         $jum = $jum + $items->jmlh_kursi;
         $tersedia = $kapasitas - $jum;
-            }else{
-                $tersedia = $kapasitas - $kapasitas;
             }
         }
        
@@ -108,18 +107,27 @@ class Daftar_busController extends Controller
    
         $req->bukti_bayar->move(public_path('invoice-images'), $fileName);
         //dd($fileName);
-        $seat = null;
-        if(isset($seat)){
-            $seat = $req->input("seat");
+        $jmlh_bus = $req->input("jumlah_bus");
+        //dd($jmlh_bus);
+        if(isset($jmlh_bus)){
+            $jmlh_bus = $req->input("jumlah_bus");
         }else{
-            $seat = null;
+            $jmlh_bus = 1;
         }
-        //dd($data);
+        //dd($jmlh_bus);
+        $jmlh_kursi = $req->input("jumlah_kursi");
+        if(isset($jmlh_kursi)){
+            $jmlh_kursi = $req->input("jumlah_kursi");
+        }else{
+            $dbus = Bus::find($req->id);
+            $jmlh_kursi = $dbus->Kapasitas * $jmlh_bus;
+        }
+        //dd($jmlh_kursi);
         
         DB::table('invoice')->insert([
             'kode_invoice'=>$req->input('kode_invoice'),
             'email'=>$req->input('email'),
-            'tgl_cetak'=>now(),
+            'tgl_cetak'=>now()->todatestring(),
             'tipe_bayar'=>$req->input('tipe_bayar'),
             'no_bayar'=>$req->input('no_bayar'),
             'id_bus_invoice'=>$req->id,
@@ -129,7 +137,8 @@ class Daftar_busController extends Controller
            'sampai'=>$req->input('sampai'),
             'lokasi'=>$req->input('lok_pickup'),
             'tujuan'=>$req->input('tujuan'),
-            'jmlh_kursi'=>$req->input('jumlah_kursi'),
+            'jmlh_kursi'=>$jmlh_kursi,
+            'jmlh_bus'=>$jmlh_bus,
             'harga'=>$req->input('harga'),
             'file'=>$fileName,
         ]);

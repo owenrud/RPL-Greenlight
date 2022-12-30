@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 // ADminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
-Route::get('/manajer', [App\Http\Controllers\ManajerController::class,'getAllData']);
+
 Route::get('/adminDashboard', [App\Http\Controllers\DaftarBus_AdminController::class,'getAllData']);
 Route::get('/validatePribadi', [App\Http\Controllers\AdminValidateController::class,'list_validasi']);
 Route::get('/validateInstansi', [App\Http\Controllers\AdminValidateController::class,'list_validasi_instansi']);
@@ -89,6 +89,13 @@ Route::patch('/updateDataRute/{id}', [App\Http\Controllers\DataRuteController::c
 Route::get('/404', function () {
     return view('eror');
 });
+
+//MANAJERRRRRRRRRRRRRR
+Route::get('/manajer', [App\Http\Controllers\ManajerController::class,'getAllData']);
+Route::match(['get','post'],'/reportday', [App\Http\Controllers\ManajerController::class,'getReportDay']);
+Route::match(['get','post'],'/reportroute', [App\Http\Controllers\ManajerController::class,'getReportRoute']);
+//MANAJERRRRRRRRRRRRRRRR
+
 
 
 

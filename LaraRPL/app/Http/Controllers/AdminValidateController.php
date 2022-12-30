@@ -13,12 +13,12 @@ use PDF;
 class AdminValidateController extends Controller
 {
     public function list_validasi(){
-        $dinvo = Invoice::all();
+        $dinvo = Invoice::orderBy('status','asc')->get();
         //Session::set('id_bus',$dbus->id);
        return view('admin.validatePribadi',['invoice'=>$dinvo]);
     }
     public function list_validasi_instansi(){
-        $dinvo = Invoice::all();
+        $dinvo = Invoice::orderBy('status','asc')->get();
         //Session::set('id_bus',$dbus->id);
        return view('admin.validateInstansi',['invoice'=>$dinvo]);
     }

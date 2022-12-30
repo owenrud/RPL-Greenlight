@@ -29,6 +29,7 @@ class CreateInvoiceTable extends Migration
             $table->string('lokasi');
             $table->string('tujuan');
             $table->string('jmlh_kursi');
+            $table->tinyInteger('jmlh_bus')->default('1');
             $table->string('harga');
             $table->string('file');
             $table->integer('status');

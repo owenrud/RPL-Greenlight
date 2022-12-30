@@ -59,7 +59,8 @@
 											</div>
 							</div>
 							</div>
-                            
+                            <div class="row">
+							<div class ='col-sm-6'>
 							<div class="form-group">
 								<span class="form-label">Lokasi Pickup</span>
 								<select style="background-color:white;" class="form-control" name="lok_pickup"  id="loc" readonly>
@@ -69,6 +70,8 @@
                         		</select>
 								
 						</div>
+						</div>
+						<div class ='col-sm-6'>
 							<div class="form-group">
 								<span class="form-label">Tujuan</span>
 								<select class="form-control" style="background-color:white;" name="tujuan"  id="Tuju" readonly>
@@ -77,6 +80,8 @@
                        				@endforeach
                         </select>
 						
+						</div>
+						</div>
 						</div>
 							
 							<div class="row">
@@ -103,6 +108,10 @@
 										<input name="sampai" class="form-control" type="text" value={{$datas->jam_sampai}} readonly>
 										@endforeach
 											</div>
+										</div>
+										<div class="form-group">
+										<span class="form-label">Jumlah Bus</span>
+										<input name="jmlh_bus" class="form-control" value="1" type="number">
 										</div>
 									</div>
 								</div>

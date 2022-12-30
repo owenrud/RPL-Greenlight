@@ -22,7 +22,7 @@
         {{$databook['email']}}
           <li class="text-black"></li>
           <li class="text-muted mt-1"><span class="text-black">Invoice</span> #{{$invo}}</li>
-          <li class="text-black mt-1">{{ now()}}</li>
+          <li class="text-black mt-1">{{ now()->todatestring()}}</li>
           <li class="text-black mt-1"><strong>Pembayaran Via : {{$databook['tipe_bayar']}}</strong></li>
           @if(ucfirst($databook['tipe_bayar'])==ucfirst('gopay'))
         <li class="text-black mt-1"><strong>6000 {{$user->no_telp}} - a/n Test Rek Gopay</strong></li>
@@ -48,6 +48,12 @@
           @if(isset($databook['jmlh_kursi']))
            @php   
            echo("Jumlah Kursi :").$databook['jmlh_kursi'];
+            
+            @endphp
+          @endif
+          @if(isset($databook['jmlh_bus']))
+           @php   
+           echo("Jumlah Bus :").$databook['jmlh_bus'];
             
             @endphp
           @endif
@@ -109,6 +115,9 @@
         <input name="tujuan" type ="hidden" value="{{$databook['tujuan']}}">
         @if(isset($databook['jmlh_kursi']))
         <input name="jumlah_kursi" type ="hidden" value="{{$databook['jmlh_kursi']}}">
+        @endif
+        @if(isset($databook['jmlh_bus']))
+        <input name="jumlah_bus" type ="hidden" value="{{$databook['jmlh_bus']}}">
         @endif
         
         <input name="harga" type ="hidden" value="{{$harga}}">
