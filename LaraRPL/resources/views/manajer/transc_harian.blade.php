@@ -56,6 +56,7 @@
                                
                             </tr>
                             @endforeach
+                            {{'Total Transaksi: ' . $datainvoice->count()}}
                             @else
                             <tr>
                                 <td>{{""}}</td>
@@ -69,9 +70,11 @@
                                 
                                
                             </tr>
+                            
                             @endif
                             
                         </tbody>
+                        
                     </table>
                 </div>
             </div>

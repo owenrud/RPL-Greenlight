@@ -110,6 +110,7 @@
         @endif
         <input name="sifat" type ="hidden" value="{{$sifat}}">
         <input name="id" type ="hidden" value="{{$databook['id']}}">
+        <input name="area" type ="hidden" value="{{$area}}">
         <input name="tgl" type ="hidden" value="{{$databook['tgl']}}">
         <input name="lok_pickup" type ="hidden" value="{{$databook['lok_pickup']}}">
         <input name="tujuan" type ="hidden" value="{{$databook['tujuan']}}">

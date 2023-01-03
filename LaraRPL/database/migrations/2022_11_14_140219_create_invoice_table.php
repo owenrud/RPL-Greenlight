@@ -16,7 +16,7 @@ class CreateInvoiceTable extends Migration
         //Schema::dropIfExists('bus');
         Schema::create('invoice', function (Blueprint $table) {
             $table->id()->Primary();
-            $table->string('id_bus_invoice');
+            $table->foreign('id_bus_invoice')->reference('id')->on('daftar_bus');
             $table->string('sifat');
             $table->string('kode_invoice');
             $table->string('email');

@@ -27,4 +27,8 @@ class Bus extends Model
         'Kapasitas',
         'Bagasi'
     ];
+    public function invoice()
+    {
+        return $this->hasMany(Invoice::class);
+    }
 }

@@ -15,8 +15,10 @@ class ManajerController extends Controller
         $complete = $datainvoice->where('status','=',1);
         $pribadi = $datainvoice->where('sifat','=','Pribadi');
         $instansi = $datainvoice->where('sifat','=','Instansi');
-        //dd($instansi);
-        return view('manajer.dashboard',compact('incomplete','complete','pribadi','instansi'));
+        $area_dalam = Invoice::select('area')->where([strtoupper('area')=>strtoupper('Dalam kota'),'sifat'=>'Instansi','status'=>0])->get()->count();
+        $area_luar = Invoice::select('area')->where([strtoupper('area')=>strtoupper('luar kota'),'sifat'=>'Instansi','status'=>0])->get()->count();
+       // dd($area_luar);
+        return view('manajer.dashboard',compact('incomplete','complete','pribadi','instansi','area_dalam','area_luar'));
     }
 
     public function getReportDay(Request $req)

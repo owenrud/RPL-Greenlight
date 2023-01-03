@@ -17,8 +17,10 @@ class DaftarBus_AdminController extends Controller
         $complete = $datainvoice->where('status','=',1);
         $pribadi = $datainvoice->where('sifat','=','Pribadi');
         $instansi = $datainvoice->where('sifat','=','Instansi');
+        $pribadi_count =count($pribadi) ;
+        $instansi_count = count($instansi);
         //dd($instansi);
-        return view('admin.dashboard',compact('incomplete','complete','pribadi','instansi'));
+        return view('admin.dashboard',compact('incomplete','complete','pribadi','instansi','pribadi_count','instansi_count'));
     }
 
     public function getAllBus()
@@ -41,7 +43,7 @@ class DaftarBus_AdminController extends Controller
 
     public function addDataBus(Request $req)
     {
-        $filename = time(). '.' . $req->foto->extension();
+        $fileName = $req->Kode_Bus. '.' . $req->foto->extension();
         //dd($datas);
         $bus = new Bus;
         $bus->Nama_Bus = $req->Nama_Bus;
@@ -51,7 +53,9 @@ class DaftarBus_AdminController extends Controller
         $bus->no_mesin = $req->no_mesin;
         $bus->Plat_nomor = $req->Plat_nomor;
         if($req->file('foto')){
-            $bus->foto = $req->file('foto')->move(public_path('bus-images'), $filename);
+            $bus->foto = 'bus-images/'.$fileName;
+            $req->foto->move(public_path('bus-images'), $fileName);
+            
         }
         $bus->Area = $req->Area;
         $bus->Kapasitas = $req->Kapasitas;
@@ -74,7 +78,7 @@ class DaftarBus_AdminController extends Controller
 
     public function addUpdateBus(Request $req, $id)
     {
-        
+        $fileName = $req->Kode_Bus. '.' . $req->foto->extension();
         $bus = Bus::find($id);
         $bus->Nama_Bus = $req->Nama_Bus;
         $bus->Sifat = $req->Sifat;
@@ -83,7 +87,9 @@ class DaftarBus_AdminController extends Controller
         $bus->no_mesin = $req->no_mesin;
         $bus->Plat_nomor = $req->Plat_nomor;
         if($req->file('foto')){
-            $bus->foto = $req->file('foto')->store('bus-images');
+            $bus->foto = 'bus-images/'.$fileName;
+            $req->foto->move(public_path('bus-images'), $fileName);
+            
         }
         $bus->Area = $req->Area;
         $bus->Kapasitas = $req->Kapasitas;

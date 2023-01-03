@@ -78,6 +78,7 @@ class Daftar_busController extends Controller
         $email = $request->email;*/
         $dbus = Bus::find($request->id);
         $sifat = $dbus->Sifat;
+        $area = $dbus->Area;
         $harga = $dbus->harga;
         $kapasitas = $dbus->Kapasitas;
         $harga_kursi = $harga / $kapasitas;
@@ -95,7 +96,7 @@ class Daftar_busController extends Controller
         
          
         
-        return view('pemesan.invoice',['databook'=>$data,'user'=>$datauser])->with('invo',$uniq_invo)->with('harga',$hrg)->with('sifat',$sifat);
+        return view('pemesan.invoice',['databook'=>$data,'user'=>$datauser])->with('invo',$uniq_invo)->with('area',$area)->with('harga',$hrg)->with('sifat',$sifat);
     }
     public function upload(Request $req){
         $data = $req->all();
@@ -131,6 +132,7 @@ class Daftar_busController extends Controller
             'tipe_bayar'=>$req->input('tipe_bayar'),
             'no_bayar'=>$req->input('no_bayar'),
             'id_bus_invoice'=>$req->id,
+            'area'=>$req->area,
             'sifat'=>$req->sifat,
             'tgl_pickup'=>$req->input('tgl'),
            'berangkat'=>$req->input('berangkat'),

@@ -26,4 +26,8 @@ class Invoice extends Model
         'harga',
         'file'
     ];
+    public function daftar_bus()
+    {
+        return $this->belongsTo(Bus::class,'foreign_key');
+    }
 }
