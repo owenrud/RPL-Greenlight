@@ -14,10 +14,12 @@ use App\Models\Rute;
 
 class Daftar_busController extends Controller
 {
-    public function getAllBus()
+    public function getAllBus(Request $req)
     {
+        
         $databus = Bus::all();
-        //dd($databus);
+   
+        //dd($datarute);
         return view('pemesan.home_pemesan', ['datas'=>$databus]);
     }
 

@@ -20,9 +20,10 @@ class LoginController extends Controller
     
     public function check(Request $request){
         $url = url()->previous();
-        $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
+        
         
         //dd($url);
+        
         $validator = Validator::make($request->all(), [
             'email' => 'required|max:255',
             'password'=> 'required',
@@ -45,10 +46,15 @@ class LoginController extends Controller
             return redirect('/adminDashboard');
             }
 
-        }
-            
+    }           
     }
+
     public function saveuser(Request $request){
+        $email = $request->email;
+        
+        $user = User::where('email', '=',$email)->exists();
+        //dd($user);
+        if($user === false){
         $user = User::create([
             'nama'=>$request->nama,
             'email'=>$request->email,
@@ -58,6 +64,11 @@ class LoginController extends Controller
             'password'=>bcrypt($request->password)
         ]);
         
-        return redirect('/login')->with('notif','Register Berhasil!');
-    }
+        return redirect('/home')->with('notif','Register Berhasil!');
+        
+}
+else{
+    return redirect('/')->with('notif','Email Sudah Terdaftar');
+}
+}
 }

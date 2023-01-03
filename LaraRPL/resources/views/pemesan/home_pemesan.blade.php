@@ -64,11 +64,9 @@
                 <hr>
             </div>
             <div class="clearfix"></div>
-            <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
-                    Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
-                    ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-                    amet..", comes from a line in section 1.10.32.</em></small>
-        </div>
+            
+            </div>
+
         <div class="space"></div>
 
         <div class="categories">
@@ -88,6 +86,7 @@
             <div class="clearfix"></div>
         </div>
 
+        
         <div id="lightbox" class="row">
             @foreach ($datas as $key=>$bus)
             @if($bus->Sifat == "Pribadi")
@@ -113,9 +112,5 @@
             </div>
         </div>
     </div>
-
-
-
-
 
     @endsection
