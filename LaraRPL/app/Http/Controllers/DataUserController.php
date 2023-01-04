@@ -32,6 +32,7 @@ class DataUserController extends Controller
         $user->password = bcrypt($req->password);
         $user->tgl_lahir = $req->tgl_lahir;
         $user->alamat = $req->alamat;
+        $user->level = $req->level;
         $user->no_telp = $req->no_telp;
         $user->save();
 
@@ -57,6 +58,7 @@ class DataUserController extends Controller
         $user->tgl_lahir = $req->tgl_lahir;
         $user->alamat = $req->alamat;
         $user->no_telp = $req->no_telp;
+        $user->level = $req->level;
         $user->save();
 
         return redirect('/dataUser');
