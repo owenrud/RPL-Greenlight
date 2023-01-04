@@ -1,15 +1,11 @@
-@extends('admin.layouts.main') 
+@extends('admin.layouts.main')
 @section('content')
 <div class="container-fluid">
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px">
             <h4 class="card-title mt-3 text-center">Ubah Data User</h4>
 
-            <form
-                method="POST"
-                action="/updateDataUser/{{ $user -> id }}"
-                enctype="multipart/form-data"
-            >
+            <form method="POST" action="/updateDataUser/{{ $user -> id }}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="_method" value="PATCH" />
                 <div class="form-group input-group">
@@ -18,13 +14,7 @@
                             <i class="fa fa-user"></i>
                         </span>
                     </div>
-                    <input
-                        name="nama"
-                        class="form-control"
-                        placeholder="Nama"
-                        type="text"
-                        value="{{ $user -> nama}}"
-                    />
+                    <input name="nama" class="form-control" placeholder="Nama" type="text" value="{{ $user -> nama}}" />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
@@ -33,13 +23,8 @@
                             <i class="fa fa-envelope"></i>
                         </span>
                     </div>
-                    <input
-                        name="email"
-                        class="form-control"
-                        placeholder="Email"
-                        type="email"
-                        value="{{ $user -> email}}"
-                    />
+                    <input name="email" class="form-control" placeholder="Email" type="email"
+                        value="{{ $user -> email}}" />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
@@ -48,13 +33,8 @@
                             <i class="fa fa-calendar"></i>
                         </span>
                     </div>
-                    <input
-                        name="tgl_lahir"
-                        class="form-control"
-                        placeholder="Tanggal Lahir"
-                        type="date"
-                        value="{{ $user -> tgl_lahir}}"
-                    />
+                    <input name="tgl_lahir" class="form-control" placeholder="Tanggal Lahir" type="date"
+                        value="{{ $user -> tgl_lahir}}" />
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
@@ -63,13 +43,8 @@
                             <i class="fa fa-building"></i>
                         </span>
                     </div>
-                    <input
-                        name="alamat"
-                        class="form-control"
-                        placeholder="Alamat"
-                        value="{{ $user -> alamat}}"
-                        type="text"
-                    />
+                    <input name="alamat" class="form-control" placeholder="Alamat" value="{{ $user -> alamat}}"
+                        type="text" />
                 </div>
                 <!-- form-group end.// -->
                 <div class="form-group input-group">
@@ -78,13 +53,8 @@
                             <i class="fa fa-phone"></i>
                         </span>
                     </div>
-                    <input
-                        name="no_telp"
-                        class="form-control"
-                        placeholder="No Telp"
-                        value="{{ $user -> no_telp}}"
-                        type="number"
-                    />
+                    <input name="no_telp" class="form-control" placeholder="No Telp" value="{{ $user -> no_telp}}"
+                        type="number" />
                 </div>
                 <!-- form-group end.// -->
                 <div class="form-group input-group">
@@ -93,18 +63,12 @@
                             <i class="fa fa-lock"></i>
                         </span>
                     </div>
-                    <input
-                        name="password"
-                        class="form-control"
-                        placeholder="Create password"
-                        value="{{ $user ->password}}"
-                        type="password"
-                    />
+                    <input name="password" class="form-control" placeholder="Create password"
+                        value="{{ $user ->password}}" type="password" />
                 </div>
 
-                <!-- {{-- Untuk Role --}} -->
+                {{-- Untuk Role --}}
 
-                <!-- {{--
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
@@ -112,11 +76,20 @@
                         </span>
                     </div>
                     <select class="custom-select" style="max-width: 150px">
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
+                        @if ($user -> level == '2'){
+                        <option name="level" value="2" selected>Admin</option>
+                        <option name="level" value="1">User</option>
+                        }
+                        @else{
+                        <option name="level" value="2">Admin</option>
+                        <option name="level" value="1" selected>User</option>
+                        }
+                        @endif
+
+
                     </select>
                 </div>
-                --}} -->
+
                 <!-- form-group// -->
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">
